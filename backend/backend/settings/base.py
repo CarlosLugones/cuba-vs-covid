@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -128,3 +129,31 @@ STATIC_URL = '/static/'
 GRAPHENE = {
     'SCHEMA': 'apps.api.schema.schema'
 }
+
+# CORS configuration
+CORS_ORIGIN_ALLOW_ALL = True  # ToDo: only for test purposes, in deploy this has to be removed
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+    'upgrade',
+    'connection',
+    'host',
+    'x-real-ip',
+    'x-forwarded-for',
+    'x-forwarded-host'
+]
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]

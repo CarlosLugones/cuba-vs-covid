@@ -31,9 +31,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    { src: '~/plugins/vuelidate' },
-  ],
+  plugins: [{ src: '~/plugins/vuelidate' }],
 
   /*
    ** Nuxt.js dev-modules
@@ -52,7 +50,9 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    '@nuxtjs/apollo',
+    'cookie-universal-nuxt'
   ],
 
   /*
@@ -60,6 +60,22 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {},
+
+  apollo: {
+    tokenExpires: 7,
+    includeNodeModules: true,
+    // Note: Setting JWT would repeat the prefix defined in Apollo `tokenType` in `local` strategy
+    authenticationType: '',
+    defaultOptions: {
+      $query: {
+        loadingKey: 'loading',
+        fetchPolicy: 'cache-and-network'
+      }
+    },
+    clientConfigs: {
+      default: '~/apollo/client.js'
+    }
+  },
 
   /*
    ** Build configuration

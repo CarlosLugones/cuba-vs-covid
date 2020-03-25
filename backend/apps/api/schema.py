@@ -1,13 +1,24 @@
 import graphene
 from graphene_django.types import ObjectType
 
+from apps.api.queries.users import UserQuery
+from apps.api.mutations.auth import RegisterMutation
+from apps.api.types.users import UserType
 
-class Query(ObjectType):
+
+class Query(
+    ObjectType,
+    UserQuery
+):
     pass
 
 
 class Mutation(ObjectType):
-    pass
+    register = RegisterMutation.Field()
 
 
-schema = graphene.Schema()
+types = [
+    UserType
+]
+
+schema = graphene.Schema(query=Query, mutation=Mutation, types=types)
