@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
     class Meta:
-        db_table = 'user'
+        db_table = 'core_user'
 
     def __str__(self):
         return str(self.username)
@@ -14,7 +14,7 @@ class Province(models.Model):
     name = models.CharField(max_length=100)
 
     class Meta:
-        db_table = 'province'
+        db_table = 'core_province'
 
     def __str__(self):
         return self.name
@@ -27,7 +27,7 @@ class City(models.Model):
     longitude = models.CharField(max_length=255, null=True)
 
     class Meta:
-        db_table = 'city'
+        db_table = 'core_city'
         verbose_name_plural = 'cities'
 
     def __str__(self):
@@ -44,7 +44,7 @@ class Address(models.Model):
     longitude = models.FloatField(null=True, blank=True)
 
     class Meta:
-        db_table = 'address'
+        db_table = 'core_address'
 
     def __str__(self):
         return '{}, {}, {}, {}'.format(
