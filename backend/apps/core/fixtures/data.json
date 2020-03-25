@@ -1,0 +1,1784 @@
+[
+  {
+    "model": "core.province",
+    "pk": 1,
+    "fields": {
+      "name": "Artemisa"
+    }
+  },
+  {
+    "model": "core.province",
+    "pk": 2,
+    "fields": {
+      "name": "La Habana"
+    }
+  },
+  {
+    "model": "core.province",
+    "pk": 3,
+    "fields": {
+      "name": "Las Tunas"
+    }
+  },
+  {
+    "model": "core.province",
+    "pk": 4,
+    "fields": {
+      "name": "Municipio Especial Isla de la Juventud"
+    }
+  },
+  {
+    "model": "core.province",
+    "pk": 5,
+    "fields": {
+      "name": "Provincia de Camagueey"
+    }
+  },
+  {
+    "model": "core.province",
+    "pk": 6,
+    "fields": {
+      "name": "Provincia de Ciego de Avila"
+    }
+  },
+  {
+    "model": "core.province",
+    "pk": 7,
+    "fields": {
+      "name": "Provincia de Cienfuegos"
+    }
+  },
+  {
+    "model": "core.province",
+    "pk": 8,
+    "fields": {
+      "name": "Provincia de Guantanamo"
+    }
+  },
+  {
+    "model": "core.province",
+    "pk": 9,
+    "fields": {
+      "name": "Provincia de Holguin"
+    }
+  },
+  {
+    "model": "core.province",
+    "pk": 10,
+    "fields": {
+      "name": "Provincia de Matanzas"
+    }
+  },
+  {
+    "model": "core.province",
+    "pk": 11,
+    "fields": {
+      "name": "Provincia de Pinar del Rio"
+    }
+  },
+  {
+    "model": "core.province",
+    "pk": 12,
+    "fields": {
+      "name": "Provincia de Sancti Spiritus"
+    }
+  },
+  {
+    "model": "core.province",
+    "pk": 13,
+    "fields": {
+      "name": "Provincia de Santiago de Cuba"
+    }
+  },
+  {
+    "model": "core.province",
+    "pk": 14,
+    "fields": {
+      "name": "Provincia de Villa Clara"
+    }
+  },
+  {
+    "model": "core.province",
+    "pk": 15,
+    "fields": {
+      "name": "Provincia Granma"
+    }
+  },
+  {
+    "model": "core.province",
+    "pk": 16,
+    "fields": {
+      "name": "Provincia Mayabeque"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 1,
+    "fields": {
+      "province": 1,
+      "name": "Bahia Honda",
+      "latitude": "22.90459061",
+      "longitude": "-83.16603088"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 2,
+    "fields": {
+      "province": 1,
+      "name": "Municipio de Alquizar",
+      "latitude": "22.79999924",
+      "longitude": "-82.58332825"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 3,
+    "fields": {
+      "province": 1,
+      "name": "Municipio de Artemisa",
+      "latitude": "22.81666946",
+      "longitude": "-82.76667023"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 4,
+    "fields": {
+      "province": 1,
+      "name": "Municipio de Bauta",
+      "latitude": "22.98332977",
+      "longitude": "-82.55000305"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 5,
+    "fields": {
+      "province": 1,
+      "name": "Municipio de Caimito",
+      "latitude": "22.95000076",
+      "longitude": "-82.59999847"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 6,
+    "fields": {
+      "province": 1,
+      "name": "Municipio de Candelaria",
+      "latitude": "22.73332977",
+      "longitude": "-82.96666718"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 7,
+    "fields": {
+      "province": 1,
+      "name": "Municipio de Guanajay",
+      "latitude": "22.93333054",
+      "longitude": "-82.68332672"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 8,
+    "fields": {
+      "province": 1,
+      "name": "Municipio de Gueira de Melena",
+      "latitude": "22.79999924",
+      "longitude": "-82.50000000"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 9,
+    "fields": {
+      "province": 1,
+      "name": "Municipio de Mariel",
+      "latitude": "22.98332977",
+      "longitude": "-82.75000000"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 10,
+    "fields": {
+      "province": 1,
+      "name": "Municipio de San Antonio de los Banos",
+      "latitude": "22.88332939",
+      "longitude": "-82.50000000"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 11,
+    "fields": {
+      "province": 1,
+      "name": "Municipio de San Cristobal",
+      "latitude": "22.71666908",
+      "longitude": "-83.05000305"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 12,
+    "fields": {
+      "province": 2,
+      "name": "Arroyo Naranjo",
+      "latitude": "23.03589058",
+      "longitude": "-82.37103271"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 13,
+    "fields": {
+      "province": 2,
+      "name": "Boyeros",
+      "latitude": "23.00428963",
+      "longitude": "-82.39433289"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 14,
+    "fields": {
+      "province": 2,
+      "name": "Centro Habana",
+      "latitude": "23.13797951",
+      "longitude": "-82.36183929"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 15,
+    "fields": {
+      "province": 2,
+      "name": "Cerro",
+      "latitude": "23.11034966",
+      "longitude": "-82.37986755"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 16,
+    "fields": {
+      "province": 2,
+      "name": "Cotorro",
+      "latitude": "23.03853035",
+      "longitude": "-82.26510620"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 17,
+    "fields": {
+      "province": 2,
+      "name": "Diez De Octubre",
+      "latitude": "23.08694077",
+      "longitude": "-82.36000061"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 18,
+    "fields": {
+      "province": 2,
+      "name": "La Habana Del Este",
+      "latitude": "23.15822029",
+      "longitude": "-82.32553101"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 19,
+    "fields": {
+      "province": 2,
+      "name": "La Habana Vieja",
+      "latitude": "23.12981033",
+      "longitude": "-82.35170746"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 20,
+    "fields": {
+      "province": 2,
+      "name": "La Lisa",
+      "latitude": "23.06570053",
+      "longitude": "-82.43463135"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 21,
+    "fields": {
+      "province": 2,
+      "name": "Municipio de Guanabacoa",
+      "latitude": "23.11667061",
+      "longitude": "-82.30000305"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 22,
+    "fields": {
+      "province": 2,
+      "name": "Municipio de Marianao",
+      "latitude": "23.08333015",
+      "longitude": "-82.43332672"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 23,
+    "fields": {
+      "province": 2,
+      "name": "Municipio de Regla",
+      "latitude": "23.11667061",
+      "longitude": "-82.33332825"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 24,
+    "fields": {
+      "province": 2,
+      "name": "Playa",
+      "latitude": "23.09934044",
+      "longitude": "-82.44844055"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 25,
+    "fields": {
+      "province": 2,
+      "name": "Plaza De La Revolucion",
+      "latitude": "23.11832047",
+      "longitude": "-82.39376831"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 26,
+    "fields": {
+      "province": 2,
+      "name": "San Miguel Del Padron",
+      "latitude": "23.06495094",
+      "longitude": "-82.29528046"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 27,
+    "fields": {
+      "province": 3,
+      "name": "Amancio",
+      "latitude": "20.81988907",
+      "longitude": "-77.57592010"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 28,
+    "fields": {
+      "province": 3,
+      "name": "Colombia",
+      "latitude": "20.98623085",
+      "longitude": "-77.42314148"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 29,
+    "fields": {
+      "province": 3,
+      "name": "Majibacoa",
+      "latitude": "20.94189072",
+      "longitude": "-76.71782684"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 30,
+    "fields": {
+      "province": 3,
+      "name": "Municipio de Jesus Menendez",
+      "latitude": "21.16333008",
+      "longitude": "-76.47750092"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 31,
+    "fields": {
+      "province": 3,
+      "name": "Municipio de Jobabo",
+      "latitude": "20.90777969",
+      "longitude": "-77.28305817"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 32,
+    "fields": {
+      "province": 3,
+      "name": "Municipio de Las Tunas",
+      "latitude": "20.96666908",
+      "longitude": "-76.94999695"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 33,
+    "fields": {
+      "province": 3,
+      "name": "Municipio de Manati",
+      "latitude": "21.31443977",
+      "longitude": "-76.93778229"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 34,
+    "fields": {
+      "province": 3,
+      "name": "Municipio de Puerto Padre",
+      "latitude": "21.20000076",
+      "longitude": "-76.59999847"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 35,
+    "fields": {
+      "province": 5,
+      "name": "Carlos Manuel De Cespedes",
+      "latitude": "21.57494926",
+      "longitude": "-78.27951813"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 36,
+    "fields": {
+      "province": 5,
+      "name": "Jimaguayu",
+      "latitude": "21.24272919",
+      "longitude": "-77.82436371"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 37,
+    "fields": {
+      "province": 5,
+      "name": "Minas",
+      "latitude": "21.48752022",
+      "longitude": "-77.61029816"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 38,
+    "fields": {
+      "province": 5,
+      "name": "Municipio de Camagueey",
+      "latitude": "21.38332939",
+      "longitude": "-77.91667175"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 39,
+    "fields": {
+      "province": 5,
+      "name": "Municipio de Esmeralda",
+      "latitude": "21.85000038",
+      "longitude": "-78.11666870"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 40,
+    "fields": {
+      "province": 5,
+      "name": "Municipio de Florida",
+      "latitude": "21.53333092",
+      "longitude": "-78.21666718"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 41,
+    "fields": {
+      "province": 5,
+      "name": "Municipio de Guaimaro",
+      "latitude": "21.04999924",
+      "longitude": "-77.34999847"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 42,
+    "fields": {
+      "province": 5,
+      "name": "Municipio de Nuevitas",
+      "latitude": "21.54999924",
+      "longitude": "-77.26667023"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 43,
+    "fields": {
+      "province": 5,
+      "name": "Municipio de Santa Cruz del Sur",
+      "latitude": "20.71666908",
+      "longitude": "-78.00000000"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 44,
+    "fields": {
+      "province": 5,
+      "name": "Najasa",
+      "latitude": "21.07210922",
+      "longitude": "-77.74681091"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 45,
+    "fields": {
+      "province": 5,
+      "name": "Sibanicu",
+      "latitude": "21.23568916",
+      "longitude": "-77.52407837"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 46,
+    "fields": {
+      "province": 5,
+      "name": "Sierra De Cubitas",
+      "latitude": "21.55171967",
+      "longitude": "-77.46901703"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 47,
+    "fields": {
+      "province": 5,
+      "name": "Vertientes",
+      "latitude": "21.26317024",
+      "longitude": "-78.15125275"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 48,
+    "fields": {
+      "province": 6,
+      "name": "Bolivia",
+      "latitude": "22.07755089",
+      "longitude": "-78.34419250"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 49,
+    "fields": {
+      "province": 6,
+      "name": "Florencia",
+      "latitude": "22.14517975",
+      "longitude": "-78.97325134"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 50,
+    "fields": {
+      "province": 6,
+      "name": "Majagua",
+      "latitude": "21.87853050",
+      "longitude": "-78.97814178"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 51,
+    "fields": {
+      "province": 6,
+      "name": "Municipio de Baragua",
+      "latitude": "21.68194008",
+      "longitude": "-78.62444305"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 52,
+    "fields": {
+      "province": 6,
+      "name": "Municipio de Chambas",
+      "latitude": "22.19667053",
+      "longitude": "-78.91333008"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 53,
+    "fields": {
+      "province": 6,
+      "name": "Municipio de Ciego de Avila",
+      "latitude": "21.85000038",
+      "longitude": "-78.76667023"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 54,
+    "fields": {
+      "province": 6,
+      "name": "Municipio de Ciro Redondo",
+      "latitude": "22.01889038",
+      "longitude": "-78.70305634"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 55,
+    "fields": {
+      "province": 6,
+      "name": "Municipio de Moron",
+      "latitude": "22.11667061",
+      "longitude": "-78.63333130"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 56,
+    "fields": {
+      "province": 6,
+      "name": "Primero De Enero",
+      "latitude": "21.94502068",
+      "longitude": "-78.43306732"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 57,
+    "fields": {
+      "province": 6,
+      "name": "Venezuela",
+      "latitude": "21.74210930",
+      "longitude": "-78.78720856"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 58,
+    "fields": {
+      "province": 7,
+      "name": "Cumanayagua",
+      "latitude": "22.14978981",
+      "longitude": "-80.19908142"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 59,
+    "fields": {
+      "province": 7,
+      "name": "Municipio de Abreus",
+      "latitude": "22.28333092",
+      "longitude": "-80.56667328"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 60,
+    "fields": {
+      "province": 7,
+      "name": "Municipio de Aguada de Pasajeros",
+      "latitude": "22.39698029",
+      "longitude": "-80.84702301"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 61,
+    "fields": {
+      "province": 7,
+      "name": "Municipio de Cienfuegos",
+      "latitude": "22.14999962",
+      "longitude": "-80.44999695"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 62,
+    "fields": {
+      "province": 7,
+      "name": "Municipio de Cruces",
+      "latitude": "22.33333015",
+      "longitude": "-80.26667023"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 63,
+    "fields": {
+      "province": 7,
+      "name": "Municipio de Palmira",
+      "latitude": "22.25000000",
+      "longitude": "-80.40000153"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 64,
+    "fields": {
+      "province": 7,
+      "name": "Municipio de Rodas",
+      "latitude": "22.33333015",
+      "longitude": "-80.55000305"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 65,
+    "fields": {
+      "province": 7,
+      "name": "Municipio de Santa Isabel de las Lajas",
+      "latitude": "22.41666985",
+      "longitude": "-80.30000305"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 66,
+    "fields": {
+      "province": 8,
+      "name": "Caimanera",
+      "latitude": "19.98966980",
+      "longitude": "-75.15180969"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 67,
+    "fields": {
+      "province": 8,
+      "name": "El Salvador",
+      "latitude": "20.21894073",
+      "longitude": "-75.22987366"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 68,
+    "fields": {
+      "province": 8,
+      "name": "Imias",
+      "latitude": "20.06854057",
+      "longitude": "-74.62747192"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 69,
+    "fields": {
+      "province": 8,
+      "name": "Maisi",
+      "latitude": "20.24732971",
+      "longitude": "-74.14869690"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 70,
+    "fields": {
+      "province": 8,
+      "name": "Manuel Tames",
+      "latitude": "20.17869949",
+      "longitude": "-75.05519867"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 71,
+    "fields": {
+      "province": 8,
+      "name": "Municipio de Baracoa",
+      "latitude": "20.35000038",
+      "longitude": "-74.50000000"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 72,
+    "fields": {
+      "province": 8,
+      "name": "Municipio de Guantanamo",
+      "latitude": "20.14999962",
+      "longitude": "-75.19999695"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 73,
+    "fields": {
+      "province": 8,
+      "name": "Municipio de Yateras",
+      "latitude": "20.20000076",
+      "longitude": "-75.15000153"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 74,
+    "fields": {
+      "province": 8,
+      "name": "Niceto Perez",
+      "latitude": "20.08634949",
+      "longitude": "-75.30642700"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 75,
+    "fields": {
+      "province": 8,
+      "name": "San Antonio Del Sur",
+      "latitude": "20.05563927",
+      "longitude": "-74.80750275"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 76,
+    "fields": {
+      "province": 9,
+      "name": "Baguanos",
+      "latitude": "20.75040054",
+      "longitude": "-76.02667999"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 77,
+    "fields": {
+      "province": 9,
+      "name": "Cacocum",
+      "latitude": "20.73587036",
+      "longitude": "-76.32673645"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 78,
+    "fields": {
+      "province": 9,
+      "name": "Cueto",
+      "latitude": "20.64763069",
+      "longitude": "-75.93269348"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 79,
+    "fields": {
+      "province": 9,
+      "name": "Frank Pais",
+      "latitude": "20.65586090",
+      "longitude": "-75.26235962"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 80,
+    "fields": {
+      "province": 9,
+      "name": "Moa",
+      "latitude": "20.65778923",
+      "longitude": "-74.94821930"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 81,
+    "fields": {
+      "province": 9,
+      "name": "Municipio de Antilla",
+      "latitude": "20.83333015",
+      "longitude": "-75.73332977"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 82,
+    "fields": {
+      "province": 9,
+      "name": "Municipio de Banes",
+      "latitude": "20.96666908",
+      "longitude": "-75.71666718"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 83,
+    "fields": {
+      "province": 9,
+      "name": "Municipio de Calixto Garcia",
+      "latitude": "20.84321022",
+      "longitude": "-76.59092712"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 84,
+    "fields": {
+      "province": 9,
+      "name": "Municipio de Gibara",
+      "latitude": "21.11667061",
+      "longitude": "-76.13333130"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 85,
+    "fields": {
+      "province": 9,
+      "name": "Municipio de Holguin",
+      "latitude": "20.88332939",
+      "longitude": "-76.25000000"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 86,
+    "fields": {
+      "province": 9,
+      "name": "Municipio de Mayari",
+      "latitude": "20.64999962",
+      "longitude": "-75.68332672"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 87,
+    "fields": {
+      "province": 9,
+      "name": "Municipio de Sagua de Tanamo",
+      "latitude": "20.58333015",
+      "longitude": "-75.23332977"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 88,
+    "fields": {
+      "province": 9,
+      "name": "Rafael Freyre",
+      "latitude": "21.02934074",
+      "longitude": "-75.99887085"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 89,
+    "fields": {
+      "province": 9,
+      "name": "Urbano Noris",
+      "latitude": "20.59745979",
+      "longitude": "-76.13825989"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 90,
+    "fields": {
+      "province": 10,
+      "name": "Calimete",
+      "latitude": "22.53355026",
+      "longitude": "-80.90959167"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 91,
+    "fields": {
+      "province": 10,
+      "name": "Cienaga De Zapata",
+      "latitude": "22.39933968",
+      "longitude": "-81.57392120"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 92,
+    "fields": {
+      "province": 10,
+      "name": "Limonar",
+      "latitude": "22.96666908",
+      "longitude": "-81.56667328"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 93,
+    "fields": {
+      "province": 10,
+      "name": "Municipio de Cardenas",
+      "latitude": "23.03333092",
+      "longitude": "-81.19999695"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 94,
+    "fields": {
+      "province": 10,
+      "name": "Municipio de Colon",
+      "latitude": "22.71666908",
+      "longitude": "-80.90000153"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 95,
+    "fields": {
+      "province": 10,
+      "name": "Municipio de Jagueey Grande",
+      "latitude": "22.53333092",
+      "longitude": "-81.11666870"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 96,
+    "fields": {
+      "province": 10,
+      "name": "Municipio de Jovellanos",
+      "latitude": "22.79999924",
+      "longitude": "-81.19999695"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 97,
+    "fields": {
+      "province": 10,
+      "name": "Municipio de Los Arabos",
+      "latitude": "22.73332977",
+      "longitude": "-80.71666718"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 98,
+    "fields": {
+      "province": 10,
+      "name": "Municipio de Marti",
+      "latitude": "22.95000076",
+      "longitude": "-80.91667175"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 99,
+    "fields": {
+      "province": 10,
+      "name": "Municipio de Matanzas",
+      "latitude": "23.04999924",
+      "longitude": "-81.58332825"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 100,
+    "fields": {
+      "province": 10,
+      "name": "Municipio de Pedro Betancourt",
+      "latitude": "22.73332977",
+      "longitude": "-81.28333282"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 101,
+    "fields": {
+      "province": 10,
+      "name": "Municipio de Perico",
+      "latitude": "22.76667023",
+      "longitude": "-81.01667023"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 102,
+    "fields": {
+      "province": 10,
+      "name": "Municipio de Union de Reyes",
+      "latitude": "22.79999924",
+      "longitude": "-81.53333282"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 103,
+    "fields": {
+      "province": 11,
+      "name": "Minas De Matahambre",
+      "latitude": "22.58452034",
+      "longitude": "-83.94692230"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 104,
+    "fields": {
+      "province": 11,
+      "name": "Municipio de Consolacion del Sur",
+      "latitude": "22.50000000",
+      "longitude": "-83.51667023"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 105,
+    "fields": {
+      "province": 11,
+      "name": "Municipio de Guane",
+      "latitude": "22.20000076",
+      "longitude": "-84.08332825"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 106,
+    "fields": {
+      "province": 11,
+      "name": "Municipio de La Palma",
+      "latitude": "22.75000000",
+      "longitude": "-83.55000305"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 107,
+    "fields": {
+      "province": 11,
+      "name": "Municipio de Los Palacios",
+      "latitude": "22.58333015",
+      "longitude": "-83.25000000"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 108,
+    "fields": {
+      "province": 11,
+      "name": "Municipio de Mantua",
+      "latitude": "22.29999924",
+      "longitude": "-84.28333282"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 109,
+    "fields": {
+      "province": 11,
+      "name": "Municipio de Pinar del Rio",
+      "latitude": "22.41666985",
+      "longitude": "-83.69999695"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 110,
+    "fields": {
+      "province": 11,
+      "name": "Municipio de San Juan y Martinez",
+      "latitude": "22.28333092",
+      "longitude": "-83.83332825"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 111,
+    "fields": {
+      "province": 11,
+      "name": "Municipio de San Luis",
+      "latitude": "22.28333092",
+      "longitude": "-83.76667023"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 112,
+    "fields": {
+      "province": 11,
+      "name": "Municipio de Vinales",
+      "latitude": "22.61772919",
+      "longitude": "-83.72196198"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 113,
+    "fields": {
+      "province": 11,
+      "name": "Sandino",
+      "latitude": "22.08031082",
+      "longitude": "-84.20601654"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 114,
+    "fields": {
+      "province": 12,
+      "name": "La Sierpe",
+      "latitude": "21.77112007",
+      "longitude": "-79.26806641"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 115,
+    "fields": {
+      "province": 12,
+      "name": "Municipio de Cabaiguan",
+      "latitude": "22.08333015",
+      "longitude": "-79.50000000"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 116,
+    "fields": {
+      "province": 12,
+      "name": "Municipio de Fomento",
+      "latitude": "22.10000038",
+      "longitude": "-79.71666718"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 117,
+    "fields": {
+      "province": 12,
+      "name": "Municipio de Jatibonico",
+      "latitude": "21.93333054",
+      "longitude": "-79.16667175"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 118,
+    "fields": {
+      "province": 12,
+      "name": "Municipio de Sancti Spiritus",
+      "latitude": "21.93333054",
+      "longitude": "-79.43332672"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 119,
+    "fields": {
+      "province": 12,
+      "name": "Municipio de Trinidad",
+      "latitude": "21.79999924",
+      "longitude": "-79.98332977"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 120,
+    "fields": {
+      "province": 12,
+      "name": "Municipio de Yaguajay",
+      "latitude": "22.31666946",
+      "longitude": "-79.23332977"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 121,
+    "fields": {
+      "province": 12,
+      "name": "Taguasco",
+      "latitude": "22.04796028",
+      "longitude": "-79.18164063"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 122,
+    "fields": {
+      "province": 13,
+      "name": "Contramaestre",
+      "latitude": "20.29157066",
+      "longitude": "-76.23880768"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 123,
+    "fields": {
+      "province": 13,
+      "name": "Guama",
+      "latitude": "19.96957970",
+      "longitude": "-76.43827820"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 124,
+    "fields": {
+      "province": 13,
+      "name": "Mella",
+      "latitude": "20.36359978",
+      "longitude": "-75.90599823"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 125,
+    "fields": {
+      "province": 13,
+      "name": "Municipio de Palma Soriano",
+      "latitude": "20.21666908",
+      "longitude": "-76.00000000"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 126,
+    "fields": {
+      "province": 13,
+      "name": "Municipio de San Luis",
+      "latitude": "20.18333054",
+      "longitude": "-75.84999847"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 127,
+    "fields": {
+      "province": 13,
+      "name": "Municipio de Santiago de Cuba",
+      "latitude": "20.01667023",
+      "longitude": "-75.81667328"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 128,
+    "fields": {
+      "province": 13,
+      "name": "Segundo Frente",
+      "latitude": "20.41283989",
+      "longitude": "-75.49645996"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 129,
+    "fields": {
+      "province": 13,
+      "name": "Songo - La Maya",
+      "latitude": "20.16391945",
+      "longitude": "-75.69769287"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 130,
+    "fields": {
+      "province": 13,
+      "name": "Tercer Frente",
+      "latitude": "20.15900040",
+      "longitude": "-76.30975342"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 131,
+    "fields": {
+      "province": 14,
+      "name": "Manicaragua",
+      "latitude": "22.14641953",
+      "longitude": "-79.97583008"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 132,
+    "fields": {
+      "province": 14,
+      "name": "Municipio de Caibarien",
+      "latitude": "22.51667023",
+      "longitude": "-79.46666718"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 133,
+    "fields": {
+      "province": 14,
+      "name": "Municipio de Camajuani",
+      "latitude": "22.46666908",
+      "longitude": "-79.73332977"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 134,
+    "fields": {
+      "province": 14,
+      "name": "Municipio de Cifuentes",
+      "latitude": "22.63999939",
+      "longitude": "-80.09999847"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 135,
+    "fields": {
+      "province": 14,
+      "name": "Municipio de Corralillo",
+      "latitude": "22.98332977",
+      "longitude": "-80.58332825"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 136,
+    "fields": {
+      "province": 14,
+      "name": "Municipio de Encrucijada",
+      "latitude": "22.61667061",
+      "longitude": "-79.86666870"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 137,
+    "fields": {
+      "province": 14,
+      "name": "Municipio de Placetas",
+      "latitude": "22.31666946",
+      "longitude": "-79.65000153"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 138,
+    "fields": {
+      "province": 14,
+      "name": "Municipio de Quemado de Gueines",
+      "latitude": "22.78333092",
+      "longitude": "-80.25000000"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 139,
+    "fields": {
+      "province": 14,
+      "name": "Municipio de Ranchuelo",
+      "latitude": "22.38332939",
+      "longitude": "-80.15000153"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 140,
+    "fields": {
+      "province": 14,
+      "name": "Municipio de Sagua la Grande",
+      "latitude": "22.79999924",
+      "longitude": "-80.08332825"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 141,
+    "fields": {
+      "province": 14,
+      "name": "Municipio de San Juan de los Remedios",
+      "latitude": "22.50000000",
+      "longitude": "-79.55000305"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 142,
+    "fields": {
+      "province": 14,
+      "name": "Municipio de Santa Clara",
+      "latitude": "22.39999962",
+      "longitude": "-79.96666718"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 143,
+    "fields": {
+      "province": 14,
+      "name": "Municipio de Santo Domingo",
+      "latitude": "22.58333015",
+      "longitude": "-80.25000000"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 144,
+    "fields": {
+      "province": 15,
+      "name": "Bartolome Maso",
+      "latitude": "20.16614914",
+      "longitude": "-76.94583893"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 145,
+    "fields": {
+      "province": 15,
+      "name": "Buey Arriba",
+      "latitude": "20.17362976",
+      "longitude": "-76.75898743"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 146,
+    "fields": {
+      "province": 15,
+      "name": "Cauto Cristo",
+      "latitude": "20.55607986",
+      "longitude": "-76.47055054"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 147,
+    "fields": {
+      "province": 15,
+      "name": "Guisa",
+      "latitude": "20.25424957",
+      "longitude": "-76.53955841"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 148,
+    "fields": {
+      "province": 15,
+      "name": "Media Luna",
+      "latitude": "20.14257050",
+      "longitude": "-77.43193817"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 149,
+    "fields": {
+      "province": 15,
+      "name": "Municipio de Bayamo",
+      "latitude": "20.38332939",
+      "longitude": "-76.65000153"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 150,
+    "fields": {
+      "province": 15,
+      "name": "Municipio de Campechuela",
+      "latitude": "20.23332977",
+      "longitude": "-77.28333282"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 151,
+    "fields": {
+      "province": 15,
+      "name": "Municipio de Jiguani",
+      "latitude": "20.36667061",
+      "longitude": "-76.43332672"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 152,
+    "fields": {
+      "province": 15,
+      "name": "Municipio de Manzanillo",
+      "latitude": "20.35000038",
+      "longitude": "-77.11666870"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 153,
+    "fields": {
+      "province": 15,
+      "name": "Municipio de Niquero",
+      "latitude": "20.04999924",
+      "longitude": "-77.58332825"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 154,
+    "fields": {
+      "province": 15,
+      "name": "Municipio de Rio Cauto",
+      "latitude": "20.56361008",
+      "longitude": "-76.91722107"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 155,
+    "fields": {
+      "province": 15,
+      "name": "Pilon",
+      "latitude": "19.90341949",
+      "longitude": "-77.32486725"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 156,
+    "fields": {
+      "province": 15,
+      "name": "Yara",
+      "latitude": "20.27329063",
+      "longitude": "-76.95424652"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 157,
+    "fields": {
+      "province": 16,
+      "name": "Municipio de Batabano",
+      "latitude": "22.71666908",
+      "longitude": "-82.28333282"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 158,
+    "fields": {
+      "province": 16,
+      "name": "Municipio de Bejucal",
+      "latitude": "22.93333054",
+      "longitude": "-82.38333130"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 159,
+    "fields": {
+      "province": 16,
+      "name": "Municipio de Gueines",
+      "latitude": "22.83333015",
+      "longitude": "-82.03333282"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 160,
+    "fields": {
+      "province": 16,
+      "name": "Municipio de Jaruco",
+      "latitude": "23.04999924",
+      "longitude": "-82.01667023"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 161,
+    "fields": {
+      "province": 16,
+      "name": "Municipio de Madruga",
+      "latitude": "22.91666985",
+      "longitude": "-81.84999847"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 162,
+    "fields": {
+      "province": 16,
+      "name": "Municipio de Melena del Sur",
+      "latitude": "22.78820992",
+      "longitude": "-82.15113068"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 163,
+    "fields": {
+      "province": 16,
+      "name": "Municipio de Nueva Paz",
+      "latitude": "22.76667023",
+      "longitude": "-81.75000000"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 164,
+    "fields": {
+      "province": 16,
+      "name": "Municipio de Quivican",
+      "latitude": "22.81666946",
+      "longitude": "-82.34999847"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 165,
+    "fields": {
+      "province": 16,
+      "name": "Municipio de San Jose de las Lajas",
+      "latitude": "22.96666908",
+      "longitude": "-82.15000153"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 166,
+    "fields": {
+      "province": 16,
+      "name": "Municipio de San Nicolas",
+      "latitude": "22.78333092",
+      "longitude": "-81.91667175"
+    }
+  },
+  {
+    "model": "core.city",
+    "pk": 167,
+    "fields": {
+      "province": 16,
+      "name": "Municipio de Santa Cruz del Norte",
+      "latitude": "23.14999962",
+      "longitude": "-81.91667175"
+    }
+  }
+]
