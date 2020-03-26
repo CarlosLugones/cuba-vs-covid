@@ -56,6 +56,7 @@ export default {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     '@nuxtjs/apollo',
+    '@nuxtjs/moment',
     'cookie-universal-nuxt'
   ],
 
@@ -101,6 +102,11 @@ export default {
     clientConfigs: {
       default: '~/apollo/client.js'
     }
+  },
+
+  moment: {
+    defaultLocale: 'es-do',
+    locales: ['es-do']
   },
 
   /*
