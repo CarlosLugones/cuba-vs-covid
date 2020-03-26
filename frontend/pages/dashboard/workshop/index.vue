@@ -1,12 +1,6 @@
 <template>
   <div>
-    <nav class="breadcrumb" aria-label="breadcrumbs">
-      <ul>
-        <li><nuxt-link to="/dashboard/workshops">Talleres</nuxt-link></li>
-        <li class="is-active"><a href="#">Crear taller</a></li>
-      </ul>
-    </nav>
-    <form @submit.stop.prevent="add()">
+    <form @submit.stop.prevent="save()">
       <!-- name -->
       <label for="" class="label">Nombre del taller</label>
       <b-field>
@@ -104,7 +98,7 @@
           :loading="form.loading"
           :disabled="$v.form.$invalid"
         >
-          Añadir taller
+          Guardar
         </b-button>
       </b-field>
     </form>
@@ -161,28 +155,64 @@ export default {
       }
     }
   },
-  mounted() {
+  async mounted() {
+    // Load provinces
+    const { data } = await this.$apollo.query({
+      query: gql`
+        query provinces {
+          provinces {
+            id
+            name
+          }
+        }
+      `
+    })
+    this.provinces = data.provinces
+
+    // Load workshop
     this.$apollo
       .query({
         query: gql`
-          query provinces {
-            provinces {
-              id
+          query viewerWorkshop {
+            viewerWorkshop {
               name
+              phone
+              fromTime
+              toTime
+              address {
+                line1
+                line2
+                city {
+                  id
+                  name
+                }
+                province {
+                  id
+                  name
+                }
+              }
             }
           }
         `
       })
       .then(({ data }) => {
-        this.provinces = data.provinces
+        const workshop = data.viewerWorkshop
+        this.form.name = workshop.name
+        this.form.phone = workshop.phone
+        this.form.fromTime = new Date(workshop.fromTime)
+        this.form.toTime = new Date(workshop.fromTime)
+        this.form.address.line1 = workshop.address.line1
+        this.form.address.line2 = workshop.address.line2
+        this.form.address.province = workshop.address.province.id
+        this.loadCities(workshop.address.city.id)
       })
   },
   methods: {
-    add() {
+    save() {
       this.$apollo
         .mutate({
           mutation: gql`
-            mutation createWorkshop(
+            mutation createOrUpdateWorkshop(
               $name: String!
               $phone: String!
               $fromTime: Time!
@@ -192,15 +222,15 @@ export default {
               $addressProvince: String!
               $addressCity: String!
             ) {
-              createWorkshop(
+              createOrUpdateWorkshop(
                 name: $name
                 phone: $phone
                 fromTime: $fromTime
                 toTime: $toTime
-                addressLine1: $addressLine1
-                addressLine2: $addressLine2
-                addressProvince: $addressProvince
-                addressCity: $addressCity
+                line1: $addressLine1
+                line2: $addressLine2
+                province: $addressProvince
+                city: $addressCity
               ) {
                 status
               }
@@ -218,13 +248,12 @@ export default {
           }
         })
         .then(({ data }) => {
-          if (data.createWorkshop.status === 'ok') {
-            this.$buefy.toast.open('Se creó el taller')
-            this.$router.replace('/dashboard/workshops')
+          if (data.createOrUpdateWorkshop.status === 'ok') {
+            this.$buefy.toast.open('Se guardaron los cambios')
           }
         })
     },
-    loadCities() {
+    loadCities(city) {
       this.$apollo
         .query({
           query: gql`
@@ -241,6 +270,9 @@ export default {
         })
         .then(({ data }) => {
           this.cities = data.cities
+          if (city) {
+            this.form.address.city = city
+          }
         })
     }
   }

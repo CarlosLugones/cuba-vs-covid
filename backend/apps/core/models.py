@@ -35,8 +35,8 @@ class City(models.Model):
 
 
 class Address(models.Model):
-    address_line_1 = models.CharField(max_length=255)
-    address_line_2 = models.CharField(max_length=255, null=True, blank=True)
+    line_1 = models.CharField(max_length=255)
+    line_2 = models.CharField(max_length=255, null=True, blank=True)
     city = models.ForeignKey(City, on_delete=models.CASCADE, null=True, blank=True)
     province = models.ForeignKey(Province, on_delete=models.CASCADE, null=True, blank=True)
     latitude = models.FloatField(null=True, blank=True)

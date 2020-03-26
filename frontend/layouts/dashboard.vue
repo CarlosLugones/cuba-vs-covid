@@ -10,8 +10,8 @@
               <b-menu-list>
                 <b-menu-item
                   icon="factory"
-                  label="Talleres"
-                  @click="navigateTo('/dashboard/workshops')"
+                  label="Taller"
+                  @click="navigateTo('/dashboard/workshop')"
                 ></b-menu-item>
                 <b-menu-item icon="printer-3d" label="Productos"></b-menu-item>
               </b-menu-list>
@@ -38,7 +38,7 @@ export default {
   methods: {
     navigateTo(path) {
       if (this.$router.path !== path) {
-        this.$router.replace('/dashboard/workshops')
+        this.$router.replace(path)
       }
     },
     ...mapMutations({
