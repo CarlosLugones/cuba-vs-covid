@@ -64,6 +64,7 @@
 </template>
 
 <script>
+import gql from 'graphql-tag'
 import { required, email } from 'vuelidate/lib/validators'
 export default {
   data() {
@@ -99,7 +100,38 @@ export default {
       this.$v.form.$touch()
       if (!this.$v.form.$invalid) {
         this.form.loading = true
-        // ToDo: Call API
+        this.$apollo
+          .mutate({
+            mutation: gql`
+              mutation register(
+                $firstName: String!
+                $lastName: String!
+                $email: String!
+                $password: String!
+              ) {
+                register(
+                  firstName: $firstName
+                  lastName: $lastName
+                  email: $email
+                  password: $password
+                ) {
+                  status
+                }
+              }
+            `,
+            variables: {
+              firstName: this.form.firstName,
+              lastName: this.form.lastName,
+              email: this.form.email,
+              password: this.form.password
+            }
+          })
+          .then(({ data }) => {
+            if (data.register.status === 'ok') {
+              this.form.loading = false
+              this.$buefy.toast.open('Se creó tu cuenta')
+            }
+          })
       }
     }
   }
