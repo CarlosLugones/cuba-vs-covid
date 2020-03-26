@@ -39,27 +39,20 @@ class Address(models.Model):
     address_line_2 = models.CharField(max_length=255, null=True, blank=True)
     city = models.ForeignKey(City, on_delete=models.CASCADE, null=True, blank=True)
     province = models.ForeignKey(Province, on_delete=models.CASCADE, null=True, blank=True)
-    zip = models.CharField(max_length=255)
     latitude = models.FloatField(null=True, blank=True)
     longitude = models.FloatField(null=True, blank=True)
 
     class Meta:
         db_table = 'core_address'
 
-    def __str__(self):
-        return '{}, {}, {}, {}'.format(
-            self.address_line_1,
-            self.city,
-            self.province,
-            self.zip
-        )
-
 
 class Workshop(models.Model):
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=255)
+    phone = models.CharField(max_length=255)
     from_time = models.TimeField(null=True, blank=True)
     to_time = models.TimeField(null=True, blank=True)
     address = models.ForeignKey(Address, on_delete=models.CASCADE)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'core_workshop'

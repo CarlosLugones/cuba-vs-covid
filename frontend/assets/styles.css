@@ -5,3 +5,11 @@
 .button {
   border-radius: 10pt !important;
 }
+
+.card {
+  border-radius: 10pt !important;
+}
+
+.margin-bottom-10 {
+  margin-bottom: 10pt;
+}
