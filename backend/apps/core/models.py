@@ -67,9 +67,11 @@ class STLModel(models.Model):
         db_table = 'core_stlmodel'
 
 
-class Item(models.Model):
+class Product(models.Model):
     name = models.CharField(max_length=255)
-    stl_model = models.ForeignKey(STLModel, on_delete=models.CASCADE)
+    stock = models.IntegerField(default=0)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    # stl_model = models.ForeignKey(STLModel, on_delete=models.CASCADE)
 
     class Meta:
-        db_table = 'core_item'
+        db_table = 'core_product'

@@ -13,7 +13,11 @@
                   label="Taller"
                   @click="navigateTo('/dashboard/workshop')"
                 ></b-menu-item>
-                <b-menu-item icon="printer-3d" label="Productos"></b-menu-item>
+                <b-menu-item
+                  icon="printer-3d"
+                  label="Productos"
+                  @click="navigateTo('/dashboard/products')"
+                ></b-menu-item>
               </b-menu-list>
             </b-menu>
           </div>

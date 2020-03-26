@@ -32,6 +32,6 @@ class STLModelAdmin(admin.ModelAdmin):
     pass
 
 
-@admin.register(models.Item)
-class ItemAdmin(admin.ModelAdmin):
+@admin.register(models.Product)
+class ProductAdmin(admin.ModelAdmin):
     pass
