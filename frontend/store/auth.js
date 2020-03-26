@@ -40,6 +40,12 @@ export const mutations = {
   },
   cleanAuth(state) {
     state.user = null
+
+    // Clean user
+    this.$auth.setUser(null)
+    this.$cookies.set('auth.user', null)
+
+    // Clean token
     this.$auth.setToken('local', null)
     this.$cookies.set('auth._token.local', null)
   }

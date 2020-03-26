@@ -30,7 +30,7 @@
       </template>
 
       <template slot="end">
-        <b-navbar-item tag="div">
+        <b-navbar-item v-if="!$auth.loggedIn" tag="div">
           <div class="buttons">
             <nuxt-link class="button is-primary" to="/register">
               <strong>Registrarme</strong>
@@ -40,6 +40,14 @@
             </nuxt-link>
           </div>
         </b-navbar-item>
+        <b-navbar-dropdown v-if="$auth.loggedIn" :label="$auth.user.firstName">
+          <b-navbar-item href="#">
+            Configuración
+          </b-navbar-item>
+          <b-navbar-item href="#" @click="logout()">
+            Salir
+          </b-navbar-item>
+        </b-navbar-dropdown>
       </template>
     </b-navbar>
 
@@ -50,5 +58,22 @@
 </template>
 
 <script>
-export default {}
+import { mapMutations } from 'vuex'
+export default {
+  mounted() {
+    this.loadAuth()
+  },
+  methods: {
+    logout() {
+      this.$auth.logout().then(() => {
+        this.cleanAuth()
+        this.$router.push(`/login`)
+      })
+    },
+    ...mapMutations({
+      cleanAuth: 'auth/cleanAuth',
+      loadAuth: 'auth/loadFromCookie'
+    })
+  }
+}
 </script>
