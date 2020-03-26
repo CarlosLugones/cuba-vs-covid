@@ -31,7 +31,10 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: '~/plugins/vuelidate' }],
+  plugins: [
+    { src: '~/plugins/vuex', ssr: true },
+    { src: '~/plugins/vuelidate' }
+  ],
 
   /*
    ** Nuxt.js dev-modules
@@ -45,6 +48,7 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
+    '@nuxtjs/auth',
     // Doc: https://buefy.github.io/#/documentation
     'nuxt-buefy',
     // Doc: https://axios.nuxtjs.org/usage
@@ -54,6 +58,28 @@ export default {
     '@nuxtjs/apollo',
     'cookie-universal-nuxt'
   ],
+
+  auth: {
+    redirect: {
+      login: '/login',
+      logout: '/',
+      callback: '/accounts/callback',
+      home: false,
+      user: '/profile'
+    },
+    strategies: {
+      local: {
+        endpoints: {
+          logout: true,
+          user: false
+        },
+        tokenRequired: true,
+        tokenType: 'JWT'
+      }
+    },
+    // User will be redirected on login/logouts.
+    watchLoggedIn: true
+  },
 
   /*
    ** Axios module configuration

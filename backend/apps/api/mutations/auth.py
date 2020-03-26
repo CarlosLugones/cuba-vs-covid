@@ -1,9 +1,35 @@
 import graphene
 from graphql import GraphQLError
-from django.contrib.auth.hashers import make_password
+from django.utils.timezone import now
+from django.contrib.auth.hashers import make_password, check_password
+from rest_framework_jwt.serializers import jwt_payload_handler, jwt_encode_handler
 
 from apps.api.types.users import UserType
 from apps.core.models import User
+
+
+class LoginMutation(graphene.Mutation):
+    status = graphene.String()
+    token = graphene.String()
+    user = graphene.Field(UserType)
+
+    class Arguments:
+        email = graphene.String(required=True)
+        password = graphene.String(required=True)
+
+    def mutate(self, info, email, password):
+        try:
+            try:
+                user = User.objects.get(email=email)
+                if check_password(password=password, encoded=user.password) and user.is_active:
+                    # Response without first_login
+                    payload = jwt_payload_handler(user)
+                    return LoginMutation(status='ok', token=jwt_encode_handler(payload), user=user)
+            except User.DoesNotExist:
+                pass
+            return LoginMutation(status='error')
+        except:
+            raise GraphQLError(message='error')
 
 
 class RegisterMutation(graphene.Mutation):

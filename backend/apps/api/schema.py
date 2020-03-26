@@ -2,7 +2,7 @@ import graphene
 from graphene_django.types import ObjectType
 
 from apps.api.queries.users import UserQuery
-from apps.api.mutations.auth import RegisterMutation
+from apps.api.mutations.auth import LoginMutation, RegisterMutation
 from apps.api.types.users import UserType
 
 
@@ -14,6 +14,7 @@ class Query(
 
 
 class Mutation(ObjectType):
+    login = LoginMutation.Field()
     register = RegisterMutation.Field()
 
 

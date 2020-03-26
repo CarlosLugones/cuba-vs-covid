@@ -4,7 +4,6 @@ import { ApolloLink } from 'apollo-link'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 
 export default function createApolloClient(ctx) {
-  console.log(ctx)
   const token = ctx.app.$cookies.get('auth._token.local')
 
   const cache = new InMemoryCache()
