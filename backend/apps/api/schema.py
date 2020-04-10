@@ -20,7 +20,7 @@ from apps.api.queries.geo import GeoQuery
 # Products
 from apps.api.types.products import ProductType
 from apps.api.queries.products import ProductsQuery
-from apps.api.mutations.products import CreateProduct
+from apps.api.mutations.products import CreateProduct, UpdateProduct
 
 
 class Query(
@@ -34,10 +34,16 @@ class Query(
 
 
 class Mutation(ObjectType):
+    # auth
     login = LoginMutation.Field()
     register = RegisterMutation.Field()
+
+    # workshop
     create_or_update_workshop = CreateOrUpdateWorkshop.Field()
+
+    # products
     create_product = CreateProduct.Field()
+    update_product = UpdateProduct.Field()
 
 
 types = [

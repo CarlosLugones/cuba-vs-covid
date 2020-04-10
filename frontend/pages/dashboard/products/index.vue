@@ -15,7 +15,9 @@
           {{ props.row.stock }}
         </b-table-column>
         <b-table-column label="Acciones">
-          <b-button>
+          <b-button
+            @click="$router.replace(`/dashboard/products/edit/${props.row.id}`)"
+          >
             <b-icon icon="pencil"></b-icon>
           </b-button>
           <b-button>
