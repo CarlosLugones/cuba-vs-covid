@@ -1,6 +1,6 @@
 from graphene_django import DjangoObjectType
 
-from apps.core.models import Province, City, Address
+from backend.apps.core.models import Province, City, Address
 
 
 class ProvinceType(DjangoObjectType):

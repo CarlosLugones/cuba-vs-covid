@@ -1,8 +1,8 @@
 import graphene
 
-from apps.api.auth import authenticate
-from apps.api.types.products import ProductType
-from apps.core.models import Product
+from backend.apps.api.auth import authenticate
+from backend.apps.api.types.products import ProductType
+from backend.apps.core.models import Product
 
 
 class CreateProduct(graphene.Mutation):

@@ -1,11 +1,10 @@
 import graphene
 from graphql import GraphQLError
-from django.utils.timezone import now
 from django.contrib.auth.hashers import make_password, check_password
 from rest_framework_jwt.serializers import jwt_payload_handler, jwt_encode_handler
 
-from apps.api.types.users import UserType
-from apps.core.models import User
+from backend.apps.api.types.users import UserType
+from backend.apps.core.models import User
 
 
 class LoginMutation(graphene.Mutation):

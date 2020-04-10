@@ -2,21 +2,21 @@ import graphene
 from graphene_django.types import ObjectType
 
 # Auth
-from apps.api.mutations.auth import LoginMutation, RegisterMutation
+from backend.apps.api.mutations.auth import LoginMutation, RegisterMutation
 
 # Users
-from apps.api.queries.users import UserQuery
-from apps.api.types.users import UserType
-from apps.api.mutations.users import UpdateUser
+from backend.apps.api.types.users import UserType
+from backend.apps.api.queries.users import UserQuery
+from backend.apps.api.mutations.users import UpdateUser
 
 # Geo
-from apps.api.types.geo import ProvinceType, CityType, AddressType
-from apps.api.queries.geo import GeoQuery
+from backend.apps.api.types.geo import ProvinceType, CityType, AddressType
+from backend.apps.api.queries.geo import GeoQuery
 
 # Products
-from apps.api.types.products import ProductType
-from apps.api.queries.products import ProductsQuery
-from apps.api.mutations.products import CreateProduct, UpdateProduct, RemoveProduct
+from backend.apps.api.types.products import ProductType
+from backend.apps.api.queries.products import ProductsQuery
+from backend.apps.api.mutations.products import CreateProduct, UpdateProduct, RemoveProduct
 
 
 class Query(

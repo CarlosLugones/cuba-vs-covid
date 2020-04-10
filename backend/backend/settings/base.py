@@ -11,8 +11,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '9#*nj2y4aretn08&^&5e8gr!uftzkmg9w$%)7=(r2g&etoqiah'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -22,18 +20,27 @@ AUTH_USER_MODEL = 'core.User'
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'graphene_django',
-    'rest_framework',
-    'apps.core',
-    'apps.api'
+    'django.contrib.staticfiles'
 ]
+
+THIRD_PARTY_APPS = [
+    'graphene_django',
+    'rest_framework'
+]
+
+LOCAL_APPS = [
+    'backend.apps.core',
+    'backend.apps.api',
+    'backend.apps.uploads'
+]
+
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -117,7 +124,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 GRAPHENE = {
-    'SCHEMA': 'apps.api.schema.schema'
+    'SCHEMA': 'backend.apps.api.schema.schema'
 }
 
 # CORS configuration

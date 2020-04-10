@@ -1,5 +1,27 @@
+import crypt
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+
+
+class HashModel(models.Model):
+    """
+    A model to reuse the `hash` field
+    """
+    hash = models.CharField(default='', max_length=255, null=True, unique=True)
+
+    class Meta:
+        abstract = True
+
+    def encrypt(self, value):
+        salt = crypt.mksalt(crypt.METHOD_MD5)
+        return str(crypt.crypt(value, salt=salt)).split('$')[3].replace('/', '-')
+
+    def generate_hashes(self):
+        self.hash = self.encrypt(str(self.id))
+
+    def _do_insert(self, manager, using, fields, update_pk, raw):
+        self.generate_hashes()
+        return super()._do_insert(manager, using, fields, update_pk, raw)
 
 
 class Province(models.Model):

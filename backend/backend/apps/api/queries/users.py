@@ -1,8 +1,8 @@
 import graphene
 
-from apps.api.types.users import UserType
-from apps.api.auth import authenticate
-from apps.core.models import User
+from backend.apps.api.auth import authenticate
+from backend.apps.api.types.users import UserType
+from backend.apps.core.models import User
 
 
 class UserQuery:

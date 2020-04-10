@@ -1,8 +1,8 @@
 import graphene
 
-from apps.api.auth import authenticate
-from apps.api.types.users import UserType
-from apps.core.models import Address, City, Province
+from backend.apps.api.auth import authenticate
+from backend.apps.api.types.users import UserType
+from backend.apps.core.models import Address, City, Province
 
 
 class UpdateUser(graphene.Mutation):

@@ -1,7 +1,6 @@
-import graphene
 from graphene_django import DjangoObjectType
 
-from apps.core.models import Product
+from backend.apps.core.models import Product
 
 
 class ProductType(DjangoObjectType):

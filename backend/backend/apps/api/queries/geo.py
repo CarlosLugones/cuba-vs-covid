@@ -1,7 +1,7 @@
 import graphene
 
-from apps.api.types.geo import ProvinceType, CityType
-from apps.core.models import Province, City
+from backend.apps.api.types.geo import ProvinceType, CityType
+from backend.apps.core.models import Province, City
 
 
 class GeoQuery:

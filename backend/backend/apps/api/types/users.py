@@ -1,6 +1,6 @@
 from graphene_django import DjangoObjectType
 
-from apps.core.models import User
+from backend.apps.core.models import User
 
 
 class UserType(DjangoObjectType):
