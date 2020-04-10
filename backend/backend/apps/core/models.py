@@ -76,6 +76,7 @@ class User(AbstractUser):
 class STLModel(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField(null=True, blank=True)
+    photo = models.ImageField(null=True, blank=True)
     file = models.FileField(upload_to='models')
 
     class Meta:
@@ -83,11 +84,9 @@ class STLModel(models.Model):
 
 
 class Product(models.Model):
-    name = models.CharField(max_length=255)
     stock = models.IntegerField(default=0)
-    photo = models.ImageField(null=True, blank=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    # stl_model = models.ForeignKey(STLModel, on_delete=models.CASCADE)
+    model = models.ForeignKey(STLModel, on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'core_product'
