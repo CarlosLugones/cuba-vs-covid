@@ -48,4 +48,6 @@ class ProductsQuery:
             except City.DoesNotExist:
                 pass
 
+        print(Product.objects.filter(**kwargs))
+
         return Product.objects.filter(**kwargs)

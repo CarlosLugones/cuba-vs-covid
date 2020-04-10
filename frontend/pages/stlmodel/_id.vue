@@ -91,7 +91,12 @@
     <!-- end filter -->
 
     <!-- filter results -->
-    <div class="container margin-top-10">
+    <div class="container margin-top-10" style="padding: 20pt">
+      <div v-if="results.length > 0" class="has-text-centered margin-bottom-10">
+        Hemos encontrado {{ results.length }}
+        {{ results.length > 1 ? 'makers' : 'maker' }} con disponibilidad de este
+        producto.
+      </div>
       <div class="columns is-multiline is-centered">
         <div
           v-for="result in results"
@@ -100,6 +105,10 @@
         >
           <ProductCard :product="result" />
         </div>
+      </div>
+      <div v-if="results.length === 0" class="has-text-centered">
+        No hay makers con disponibilidad de este producto en la zona
+        especificada.
       </div>
     </div>
     <!-- end filter results -->
@@ -146,6 +155,7 @@ export default {
       })
       .then(({ data }) => {
         this.stlmodel = data.stlmodel
+        this.filter()
       })
 
     // Load provinces
@@ -191,7 +201,7 @@ export default {
           query: gql`
             query filterProducts(
               $stlmodel: String!
-              $province: String!
+              $province: String
               $city: String
             ) {
               filterProducts(
@@ -209,6 +219,10 @@ export default {
                   phone
                   fromTime
                   toTime
+                  address {
+                    line1
+                    line2
+                  }
                 }
               }
             }

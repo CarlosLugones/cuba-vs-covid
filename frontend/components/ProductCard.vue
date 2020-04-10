@@ -24,6 +24,12 @@
             {{ product.owner.phone }}
           </p>
           <p>
+            <b>Dirección:</b>
+            <br />
+            {{ product.owner.address.line1 }},
+            {{ product.owner.address.line2 }}
+          </p>
+          <p>
             <b>Horario:</b>
             <br />
             {{ product.owner.fromTime }} a {{ product.owner.toTime }}
