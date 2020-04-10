@@ -12,7 +12,7 @@
                 style="border-radius: 10pt"
               />
             </div>
-            <div class="column">
+            <div class="column is-4">
               <h2 class="subtitle">{{ stlmodel.name }}</h2>
               <p>Disponibilidad total: {{ stlmodel.stock }}</p>
               <a
@@ -28,6 +28,8 @@
         </div>
       </div>
     </div>
+
+    <!-- filter -->
     <div v-if="stlmodel" class="hero is-info">
       <div class="hero-body">
         <div class="container">
@@ -73,7 +75,12 @@
             </div>
 
             <div class="column is-narrow">
-              <b-button type="is-black" size="is-large" icon-left="filter">
+              <b-button
+                type="is-black"
+                size="is-large"
+                icon-left="filter"
+                @click="filter()"
+              >
                 Filtrar
               </b-button>
             </div>
@@ -81,12 +88,30 @@
         </div>
       </div>
     </div>
+    <!-- end filter -->
+
+    <!-- filter results -->
+    <div class="container margin-top-10">
+      <div class="columns is-multiline is-centered">
+        <div
+          v-for="result in results"
+          :key="result.id"
+          class="column is-3 is-12-mobile"
+        >
+          <ProductCard :product="result" />
+        </div>
+      </div>
+    </div>
+    <!-- end filter results -->
   </div>
 </template>
 
 <script>
 import gql from 'graphql-tag'
+import ProductCard from '~/components/ProductCard'
+
 export default {
+  components: { ProductCard },
   data() {
     return {
       stlmodel: null,
@@ -94,8 +119,10 @@ export default {
       cities: [],
       filterForm: {
         province: null,
-        city: null
-      }
+        city: null,
+        loading: false
+      },
+      results: []
     }
   },
   async mounted() {
@@ -155,6 +182,46 @@ export default {
           if (city) {
             this.filterForm.city = city
           }
+        })
+    },
+    filter() {
+      this.filterForm.loading = true
+      this.$apollo
+        .query({
+          query: gql`
+            query filterProducts(
+              $stlmodel: String!
+              $province: String!
+              $city: String
+            ) {
+              filterProducts(
+                stlmodel: $stlmodel
+                province: $province
+                city: $city
+              ) {
+                id
+                stock
+                owner {
+                  id
+                  firstName
+                  lastName
+                  avatar
+                  phone
+                  fromTime
+                  toTime
+                }
+              }
+            }
+          `,
+          variables: {
+            stlmodel: this.$route.params.id,
+            province: this.filterForm.province,
+            city: this.filterForm.city
+          }
+        })
+        .then(({ data }) => {
+          this.filterForm.loading = true
+          this.results = data.filterProducts
         })
     }
   }

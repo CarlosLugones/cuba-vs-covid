@@ -61,6 +61,7 @@ class Address(models.Model):
 
 
 class User(AbstractUser):
+    avatar = models.ImageField(null=True, blank=True)
     phone = models.CharField(max_length=255, null=True, blank=True)
     from_time = models.TimeField(null=True, blank=True)
     to_time = models.TimeField(null=True, blank=True)
