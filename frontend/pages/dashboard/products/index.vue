@@ -20,7 +20,7 @@
           >
             <b-icon icon="pencil"></b-icon>
           </b-button>
-          <b-button>
+          <b-button @click="remove(props.row.id)">
             <b-icon icon="delete"></b-icon>
           </b-button>
         </b-table-column>
@@ -54,6 +54,29 @@ export default {
       .then(({ data }) => {
         this.products = data.viewerProducts
       })
+  },
+  methods: {
+    remove(id) {
+      this.$apollo
+        .mutate({
+          mutation: gql`
+            mutation removeProduct($id: String!) {
+              removeProduct(id: $id) {
+                status
+              }
+            }
+          `,
+          variables: {
+            id
+          }
+        })
+        .then(({ data }) => {
+          if (data.removeProduct.status === 'ok') {
+            const index = this.products.findIndex((i) => i.id === id)
+            this.products.splice(index, 1)
+          }
+        })
+    }
   }
 }
 </script>

@@ -32,7 +32,6 @@ class UpdateProduct(graphene.Mutation):
 
     def mutate(self, info, id, name, stock):
         user = authenticate(info.context)
-
         if user is not None:
             try:
                 product = Product.objects.get(pk=id)
@@ -44,3 +43,22 @@ class UpdateProduct(graphene.Mutation):
             except Product.DoesNotExist:
                 pass
         return UpdateProduct(status='forbidden')
+
+
+class RemoveProduct(graphene.Mutation):
+    status = graphene.String()
+
+    class Arguments:
+        id = graphene.String(required=True)
+
+    def mutate(self, info, id):
+        user = authenticate(info.context)
+        if user is not None:
+            try:
+                product = Product.objects.get(pk=id)
+                if product.owner == user:
+                    product.delete()
+                    return RemoveProduct(status='ok')
+            except Product.DoesNotExist:
+                pass
+        return RemoveProduct(status='forbidden')
