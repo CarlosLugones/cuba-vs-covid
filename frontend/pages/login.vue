@@ -112,7 +112,7 @@ export default {
                   this.$cookies.set('auth.user', user)
                   this.$cookies.set('auth._token.local', jwtToken)
 
-                  this.$router.replace('/')
+                  this.$router.replace('/dashboard/products')
                   this.$emit('login')
                 })
                 break
