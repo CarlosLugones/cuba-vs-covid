@@ -6,11 +6,11 @@
         <div class="container">
           <div class="columns is-multiline is-centered">
             <div
-              v-for="product in products"
-              :key="product.id"
+              v-for="stlmodel in stlmodels"
+              :key="stlmodel.id"
               class="column is-2 is-12-mobile"
             >
-              <ProductCard :product="product" />
+              <STLModelCard :stlmodel="stlmodel" />
             </div>
           </div>
         </div>
@@ -21,34 +21,30 @@
 
 <script>
 import gql from 'graphql-tag'
-import ProductCard from '~/components/ProductCard'
+import STLModelCard from '~/components/STLModelCard'
 export default {
-  components: { ProductCard },
+  components: { STLModelCard },
   data() {
     return {
-      products: []
+      stlmodels: []
     }
   },
   mounted() {
     this.$apollo
       .query({
         query: gql`
-          query existingProducts {
-            existingProducts {
+          query existingStlmodels {
+            existingStlmodels {
               id
               name
-              stock
               photo
-              owner {
-                firstName
-                lastName
-              }
+              stock
             }
           }
         `
       })
       .then(({ data }) => {
-        this.products = data.existingProducts
+        this.stlmodels = data.existingStlmodels
       })
   }
 }

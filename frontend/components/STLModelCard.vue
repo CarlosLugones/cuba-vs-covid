@@ -2,15 +2,15 @@
   <div class="card">
     <header class="card-header">
       <p class="card-header-title">
-        {{ product.name }}
+        {{ stlmodel.name }}
       </p>
     </header>
     <figure class="image is-4by3">
-      <img :src="`/media/${product.photo}`" alt="" />
+      <img :src="`/media/${stlmodel.photo}`" alt="" />
     </figure>
     <div class="card-content">
       <div class="content">
-        <p>{{ product.stock }} disponibles</p>
+        <p>{{ stlmodel.stock }} disponibles</p>
       </div>
     </div>
   </div>
@@ -19,7 +19,7 @@
 <script>
 export default {
   props: {
-    product: {
+    stlmodel: {
       type: Object,
       default: () => null
     }

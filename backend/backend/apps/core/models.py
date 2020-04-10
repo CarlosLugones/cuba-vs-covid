@@ -73,6 +73,18 @@ class User(AbstractUser):
         return str(self.username)
 
 
+class Product(models.Model):
+    stock = models.IntegerField(default=0)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    stlmodel = models.ForeignKey('STLModel', on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = 'core_product'
+
+    def __str__(self):
+        return self.stlmodel.name
+
+
 class STLModel(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField(null=True, blank=True)
@@ -85,14 +97,10 @@ class STLModel(models.Model):
     def __str__(self):
         return self.name
 
-
-class Product(models.Model):
-    stock = models.IntegerField(default=0)
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    stlmodel = models.ForeignKey(STLModel, on_delete=models.CASCADE)
-
-    class Meta:
-        db_table = 'core_product'
-
-    def __str__(self):
-        return self.stlmodel.name
+    @property
+    def stock(self):
+        products = Product.objects.filter(stlmodel=self)
+        s = 0
+        for product in products:
+            s += product.stock
+        return s
