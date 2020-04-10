@@ -9,26 +9,31 @@
       </ul>
     </nav>
     <form @submit.stop.prevent="update()">
-      <!-- name -->
-      <label for="" class="label">Nombre del producto</label>
+      <!-- stlmodel -->
+      <label for="" class="label">Modelo</label>
       <b-field>
-        <b-input v-model="$v.form.name.$model"></b-input>
+        <b-select
+          v-model="$v.form.stlmodel.$model"
+          placeholder="Selecciona un modelo"
+          expanded
+        >
+          <option
+            v-for="stlmodel in stlmodels"
+            :key="stlmodel.id"
+            :value="stlmodel.id"
+          >
+            {{ stlmodel.name }}
+          </option>
+        </b-select>
       </b-field>
-      <!-- end name -->
+      <!-- end stlmodel -->
 
-      <!-- phone -->
+      <!-- stock -->
       <label for="" class="label">Cantidad en inventario</label>
       <b-field>
         <b-input v-model="$v.form.stock.$model"></b-input>
       </b-field>
-      <!-- end phone -->
-
-      <PhotoUploader
-        size="120pt"
-        class="margin-bottom-10"
-        :photo="form.photo"
-        @photo:uploaded="($url) => (form.photo = $url)"
-      />
+      <!-- end stock -->
 
       <b-field>
         <b-button
@@ -47,22 +52,20 @@
 <script>
 import gql from 'graphql-tag'
 import { required, integer } from 'vuelidate/lib/validators'
-import PhotoUploader from '~/components/PhotoUploader'
 export default {
   layout: 'dashboard',
-  components: { PhotoUploader },
   data() {
     return {
+      stlmodels: [],
       form: {
-        name: null,
-        stock: null,
-        photo: null
+        stlmodel: null,
+        stock: null
       }
     }
   },
   validations: {
     form: {
-      name: {
+      stlmodel: {
         required
       },
       stock: {
@@ -71,15 +74,28 @@ export default {
       }
     }
   },
-  mounted() {
+  async mounted() {
+    // Load stlmodels
+    const { data } = await this.$apollo.query({
+      query: gql`
+        query stlmodels {
+          stlmodels {
+            id
+            name
+          }
+        }
+      `
+    })
+
+    this.stlmodels = data.stlmodels
+
     this.$apollo
       .query({
         query: gql`
           query product($id: String!) {
             product(id: $id) {
-              name
+              id
               stock
-              photo
             }
           }
         `,
@@ -98,27 +114,15 @@ export default {
         this.$apollo
           .mutate({
             mutation: gql`
-              mutation updateProduct(
-                $id: String!
-                $name: String!
-                $stock: Int!
-                $photo: String
-              ) {
-                updateProduct(
-                  id: $id
-                  name: $name
-                  stock: $stock
-                  photo: $photo
-                ) {
+              mutation updateProduct($id: String!, $stock: Int!) {
+                updateProduct(id: $id, stock: $stock) {
                   status
                 }
               }
             `,
             variables: {
               id: this.$route.params.id,
-              name: this.form.name,
-              stock: this.form.stock,
-              photo: this.form.photo
+              stock: this.form.stock
             }
           })
           .then(({ data }) => {
