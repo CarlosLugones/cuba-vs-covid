@@ -15,14 +15,14 @@
             <div class="column">
               <h2 class="subtitle">{{ stlmodel.name }}</h2>
               <p>Disponibilidad total: {{ stlmodel.stock }}</p>
-              <b-button
-                type="is-primary"
-                class="margin-top-10"
-                size="is-medium"
-                icon-left="download"
+              <a
+                :href="`/media/${stlmodel.file}`"
+                target="_blank"
+                class="button is-primary is-medium margin-top-10"
               >
-                Descargar modelo STL
-              </b-button>
+                <b-icon icon="download" slyle="margin-right: 10pt"></b-icon>
+                <span>Descargar modelo STL</span>
+              </a>
             </div>
           </div>
         </div>
@@ -109,6 +109,7 @@ export default {
               name
               photo
               stock
+              file
             }
           }
         `,
