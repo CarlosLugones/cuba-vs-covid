@@ -18,18 +18,18 @@
       <div class="content">
         <small>
           <p>{{ product.stock }} disponibles</p>
-          <p>
+          <p v-if="product.owner.phone">
             <b>Teléfono:</b>
             <br />
             {{ product.owner.phone }}
           </p>
-          <p>
+          <p v-if="product.owner.address">
             <b>Dirección:</b>
             <br />
             {{ product.owner.address.line1 }},
             {{ product.owner.address.line2 }}
           </p>
-          <p>
+          <p v-if="product.owner.fromTime && product.owner.toTime">
             <b>Horario:</b>
             <br />
             {{ product.owner.fromTime }} a {{ product.owner.toTime }}
