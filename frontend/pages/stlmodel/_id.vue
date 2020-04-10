@@ -4,7 +4,7 @@
       <div class="hero-body">
         <div class="container">
           <div class="columns is-multiline is-centered">
-            <div class="column is-3">
+            <div class="column is-narrow">
               <img
                 :src="`/media/${stlmodel.photo}`"
                 alt=""
@@ -13,8 +13,9 @@
               />
             </div>
             <div class="column is-4">
-              <h2 class="subtitle">{{ stlmodel.name }}</h2>
-              <p>Disponibilidad total: {{ stlmodel.stock }}</p>
+              <h1 class="title">{{ stlmodel.name }}</h1>
+              <p class="margin-bottom-10">{{ stlmodel.description }}</p>
+              <p><b>Disponibilidad total:</b> {{ stlmodel.stock }}</p>
               <a
                 :href="`/media/${stlmodel.file}`"
                 target="_blank"
@@ -146,6 +147,7 @@ export default {
               photo
               stock
               file
+              description
             }
           }
         `,
