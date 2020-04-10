@@ -82,11 +82,17 @@ class STLModel(models.Model):
     class Meta:
         db_table = 'core_stlmodel'
 
+    def __str__(self):
+        return self.name
+
 
 class Product(models.Model):
     stock = models.IntegerField(default=0)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    model = models.ForeignKey(STLModel, on_delete=models.CASCADE)
+    stlmodel = models.ForeignKey(STLModel, on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'core_product'
+
+    def __str__(self):
+        return self.stlmodel.name

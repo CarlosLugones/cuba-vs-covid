@@ -13,6 +13,10 @@ from backend.apps.api.mutations.users import UpdateUser
 from backend.apps.api.types.geo import ProvinceType, CityType, AddressType
 from backend.apps.api.queries.geo import GeoQuery
 
+# Models
+from backend.apps.api.types.stlmodels import STLModelType
+from backend.apps.api.queries.stlmodels import STLModelsQuery
+
 # Products
 from backend.apps.api.types.products import ProductType
 from backend.apps.api.queries.products import ProductsQuery
@@ -23,6 +27,7 @@ class Query(
     ObjectType,
     UserQuery,
     GeoQuery,
+    STLModelsQuery,
     ProductsQuery
 ):
     pass
@@ -47,6 +52,7 @@ types = [
     ProvinceType,
     CityType,
     AddressType,
+    STLModelType,
     ProductType
 ]
 

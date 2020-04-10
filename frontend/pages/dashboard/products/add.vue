@@ -9,12 +9,24 @@
       </ul>
     </nav>
     <form @submit.stop.prevent="add()">
-      <!-- name -->
-      <label for="" class="label">Nombre del producto</label>
+      <!-- stlmodel -->
+      <label for="" class="label">Modelo</label>
       <b-field>
-        <b-input v-model="$v.form.name.$model"></b-input>
+        <b-select
+          v-model="$v.form.stlmodel.$model"
+          placeholder="Selecciona un modelo"
+          expanded
+        >
+          <option
+            v-for="stlmodel in stlmodels"
+            :key="stlmodel.id"
+            :value="stlmodel.id"
+          >
+            {{ stlmodel.name }}
+          </option>
+        </b-select>
       </b-field>
-      <!-- end name -->
+      <!-- end stlmodel -->
 
       <!-- phone -->
       <label for="" class="label">Cantidad en inventario</label>
@@ -22,12 +34,6 @@
         <b-input v-model="$v.form.stock.$model"></b-input>
       </b-field>
       <!-- end phone -->
-
-      <PhotoUploader
-        size="120pt"
-        class="margin-bottom-10"
-        @photo:uploaded="($url) => (form.photo = $url)"
-      />
 
       <b-field>
         <b-button
@@ -46,22 +52,20 @@
 <script>
 import gql from 'graphql-tag'
 import { required, integer } from 'vuelidate/lib/validators'
-import PhotoUploader from '~/components/PhotoUploader'
 export default {
   layout: 'dashboard',
-  components: { PhotoUploader },
   data() {
     return {
+      stlmodels: [],
       form: {
-        name: null,
-        stock: null,
-        photo: null
+        stlmodel: null,
+        stock: null
       }
     }
   },
   validations: {
     form: {
-      name: {
+      stlmodel: {
         required
       },
       stock: {
@@ -70,6 +74,22 @@ export default {
       }
     }
   },
+  mounted() {
+    this.$apollo
+      .query({
+        query: gql`
+          query stlmodels {
+            stlmodels {
+              id
+              name
+            }
+          }
+        `
+      })
+      .then(({ data }) => {
+        this.stlmodels = data.stlmodels
+      })
+  },
   methods: {
     add() {
       this.$v.form.$touch()
@@ -77,20 +97,15 @@ export default {
         this.$apollo
           .mutate({
             mutation: gql`
-              mutation createProduct(
-                $name: String!
-                $stock: Int!
-                $photo: String
-              ) {
-                createProduct(name: $name, stock: $stock, photo: $photo) {
+              mutation createProduct($stlmodel: String!, $stock: Int!) {
+                createProduct(stlmodel: $stlmodel, stock: $stock) {
                   status
                 }
               }
             `,
             variables: {
-              name: this.form.name,
-              stock: this.form.stock,
-              photo: this.form.photo
+              stlmodel: this.form.stlmodel,
+              stock: this.form.stock
             }
           })
           .then(({ data }) => {

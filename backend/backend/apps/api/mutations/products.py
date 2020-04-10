@@ -2,7 +2,7 @@ import graphene
 
 from backend.apps.api.auth import authenticate
 from backend.apps.api.types.products import ProductType
-from backend.apps.core.models import Product
+from backend.apps.core.models import Product, STLModel
 
 
 class CreateProduct(graphene.Mutation):
@@ -10,15 +10,20 @@ class CreateProduct(graphene.Mutation):
     product = graphene.Field(ProductType)
 
     class Arguments:
-        name = graphene.String(required=True)
+        stlmodel = graphene.String(required=True)
         stock = graphene.Int(required=True)
-        photo = graphene.String()
 
-    def mutate(self, info, name, stock, photo):
+    def mutate(self, info, stlmodel, stock):
         user = authenticate(info.context)
 
         if user is not None:
-            product = Product.objects.create(name=name, stock=stock, photo=photo, owner=user)
+            model = STLModel.objects.get(pk=stlmodel)
+            try:
+                product = Product.objects.get(stlmodel=model, owner=user)
+                product.stock += stock
+                product.save()
+            except Product.DoesNotExist:
+                product = Product.objects.create(stlmodel=model, stock=stock, owner=user)
             return CreateProduct(status='ok', product=product)
         return CreateProduct(status='forbidden')
 
@@ -28,19 +33,15 @@ class UpdateProduct(graphene.Mutation):
 
     class Arguments:
         id = graphene.String(required=True)
-        name = graphene.String(required=True)
         stock = graphene.Int(required=True)
-        photo = graphene.String()
 
-    def mutate(self, info, id, name, stock, photo):
+    def mutate(self, info, id, stock):
         user = authenticate(info.context)
         if user is not None:
             try:
                 product = Product.objects.get(pk=id)
                 if product.owner == user:
-                    product.name = name
                     product.stock = stock
-                    product.photo = photo
                     product.save()
                     return UpdateProduct(status='ok')
             except Product.DoesNotExist:

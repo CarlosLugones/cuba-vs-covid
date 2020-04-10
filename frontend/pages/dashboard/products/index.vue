@@ -9,10 +9,14 @@
     <b-table :data="products">
       <template slot-scope="props">
         <b-table-column field="id" label="Foto">
-          <img :src="`/media/${props.row.photo}`" alt="" width="30pt" />
+          <img
+            :src="`/media/${props.row.stlmodel.photo}`"
+            alt=""
+            width="30pt"
+          />
         </b-table-column>
         <b-table-column field="id" label="Nombre">
-          {{ props.row.name }}
+          {{ props.row.stlmodel.name }}
         </b-table-column>
         <b-table-column field="id" label="Inventario">
           {{ props.row.stock }}
@@ -48,9 +52,12 @@ export default {
           query viewerProducts {
             viewerProducts {
               id
-              name
               stock
-              photo
+              stlmodel {
+                id
+                name
+                photo
+              }
             }
           }
         `
