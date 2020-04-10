@@ -10,6 +10,10 @@
   border-radius: 10pt !important;
 }
 
+.margin-top-10 {
+  margin-top: 10pt;
+}
+
 .margin-bottom-10 {
   margin-bottom: 10pt;
 }

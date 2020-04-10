@@ -85,6 +85,7 @@ class STLModel(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=255)
     stock = models.IntegerField(default=0)
+    photo = models.ImageField(null=True, blank=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     # stl_model = models.ForeignKey(STLModel, on_delete=models.CASCADE)
 

@@ -25,6 +25,9 @@
     "graphql-tag": "^2.10.3",
     "nuxt": "^2.0.0",
     "nuxt-buefy": "^0.3.2",
+    "stylus": "^0.54.7",
+    "stylus-loader": "^3.0.2",
+    "vue-advanced-cropper": "^0.16.1",
     "vuelidate": "^0.7.5",
     "vuex": "^3.1.3"
   },

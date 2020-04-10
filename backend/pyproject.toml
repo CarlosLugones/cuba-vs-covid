@@ -12,6 +12,7 @@ graphene-django = "^2.9.0"
 django-cors-headers = "^3.2.1"
 djangorestframework-jwt = "^1.11.0"
 djangorestframework = "^3.11.0"
+pillow = "^7.1.1"
 
 [tool.poetry.dev-dependencies]
 

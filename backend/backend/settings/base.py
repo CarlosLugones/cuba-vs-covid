@@ -9,7 +9,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '9#*nj2y4aretn08&^&5e8gr!uftzkmg9w$%)7=(r2g&etoqiah'
+SECRET_KEY = os.environ['CUBAVSCOVID__DJANGO_SECRET_KEY']
 
 
 ALLOWED_HOSTS = []
@@ -122,6 +122,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.environ['CUBAVSCOVID__DJANGO_PRODUCTION_STATIC_ROOT']
+MEDIA_ROOT = os.environ['CUBAVSCOVID__DJANGO_PRODUCTION_MEDIA_ROOT']
 
 GRAPHENE = {
     'SCHEMA': 'backend.apps.api.schema.schema'

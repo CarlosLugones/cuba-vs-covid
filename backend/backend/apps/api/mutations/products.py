@@ -12,12 +12,13 @@ class CreateProduct(graphene.Mutation):
     class Arguments:
         name = graphene.String(required=True)
         stock = graphene.Int(required=True)
+        photo = graphene.String()
 
-    def mutate(self, info, name, stock):
+    def mutate(self, info, name, stock, photo):
         user = authenticate(info.context)
 
         if user is not None:
-            product = Product.objects.create(name=name, stock=stock, owner=user)
+            product = Product.objects.create(name=name, stock=stock, photo=photo, owner=user)
             return CreateProduct(status='ok', product=product)
         return CreateProduct(status='forbidden')
 
