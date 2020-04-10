@@ -48,8 +48,8 @@ import gql from 'graphql-tag'
 import { required, integer } from 'vuelidate/lib/validators'
 import PhotoUploader from '~/components/PhotoUploader'
 export default {
-  components: { PhotoUploader },
   layout: 'dashboard',
+  components: { PhotoUploader },
   data() {
     return {
       form: {

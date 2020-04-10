@@ -23,6 +23,13 @@
       </b-field>
       <!-- end phone -->
 
+      <PhotoUploader
+        size="120pt"
+        class="margin-bottom-10"
+        :photo="form.photo"
+        @photo:uploaded="($url) => (form.photo = $url)"
+      />
+
       <b-field>
         <b-button
           type="is-primary"
@@ -40,13 +47,16 @@
 <script>
 import gql from 'graphql-tag'
 import { required, integer } from 'vuelidate/lib/validators'
+import PhotoUploader from '~/components/PhotoUploader'
 export default {
   layout: 'dashboard',
+  components: { PhotoUploader },
   data() {
     return {
       form: {
         name: null,
-        stock: null
+        stock: null,
+        photo: null
       }
     }
   },
@@ -69,6 +79,7 @@ export default {
             product(id: $id) {
               name
               stock
+              photo
             }
           }
         `,
@@ -100,7 +111,8 @@ export default {
             variables: {
               id: this.$route.params.id,
               name: this.form.name,
-              stock: this.form.stock
+              stock: this.form.stock,
+              photo: this.form.photo
             }
           })
           .then(({ data }) => {
