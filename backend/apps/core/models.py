@@ -2,14 +2,6 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 
-class User(AbstractUser):
-    class Meta:
-        db_table = 'core_user'
-
-    def __str__(self):
-        return str(self.username)
-
-
 class Province(models.Model):
     name = models.CharField(max_length=100)
 
@@ -46,16 +38,17 @@ class Address(models.Model):
         db_table = 'core_address'
 
 
-class Workshop(models.Model):
-    name = models.CharField(max_length=255)
-    phone = models.CharField(max_length=255)
+class User(AbstractUser):
+    phone = models.CharField(max_length=255, null=True, blank=True)
     from_time = models.TimeField(null=True, blank=True)
     to_time = models.TimeField(null=True, blank=True)
-    address = models.ForeignKey(Address, on_delete=models.CASCADE)
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    address = models.ForeignKey(Address, on_delete=models.CASCADE, null=True, blank=True)
 
     class Meta:
-        db_table = 'core_workshop'
+        db_table = 'core_user'
+
+    def __str__(self):
+        return str(self.username)
 
 
 class STLModel(models.Model):

@@ -2,11 +2,18 @@
   <div>
     <form @submit.stop.prevent="save()">
       <!-- name -->
-      <label for="" class="label">Nombre del taller</label>
+      <label for="" class="label">Nombre</label>
       <b-field>
-        <b-input v-model="$v.form.name.$model"></b-input>
+        <b-input v-model="$v.form.firstName.$model"></b-input>
       </b-field>
       <!-- end name -->
+
+      <!-- last name -->
+      <label for="" class="label">Apellidos</label>
+      <b-field>
+        <b-input v-model="$v.form.lastName.$model"></b-input>
+      </b-field>
+      <!-- end last name -->
 
       <!-- phone -->
       <label for="" class="label">Teléfono</label>
@@ -115,7 +122,8 @@ export default {
       provinces: [],
       cities: [],
       form: {
-        name: null,
+        firstName: null,
+        lastName: null,
         phone: null,
         fromTime: null,
         toTime: null,
@@ -130,7 +138,10 @@ export default {
   },
   validations: {
     form: {
-      name: {
+      firstName: {
+        required
+      },
+      lastName: {
         required
       },
       phone: {
@@ -169,13 +180,14 @@ export default {
     })
     this.provinces = data.provinces
 
-    // Load workshop
+    // Load user
     this.$apollo
       .query({
         query: gql`
-          query viewerWorkshop {
-            viewerWorkshop {
-              name
+          query viewerUser {
+            viewerUser {
+              firstName
+              lastName
               phone
               fromTime
               toTime
@@ -196,15 +208,16 @@ export default {
         `
       })
       .then(({ data }) => {
-        const workshop = data.viewerWorkshop
-        this.form.name = workshop.name
-        this.form.phone = workshop.phone
-        this.form.fromTime = new Date(workshop.fromTime)
-        this.form.toTime = new Date(workshop.fromTime)
-        this.form.address.line1 = workshop.address.line1
-        this.form.address.line2 = workshop.address.line2
-        this.form.address.province = workshop.address.province.id
-        this.loadCities(workshop.address.city.id)
+        const user = data.viewerUser
+        this.form.firstName = user.firstName
+        this.form.lastName = user.lastName
+        this.form.phone = user.phone
+        this.form.fromTime = new Date(user.fromTime)
+        this.form.toTime = new Date(user.fromTime)
+        this.form.address.line1 = user.address.line1
+        this.form.address.line2 = user.address.line2
+        this.form.address.province = user.address.province.id
+        this.loadCities(user.address.city.id)
       })
   },
   methods: {
@@ -212,8 +225,9 @@ export default {
       this.$apollo
         .mutate({
           mutation: gql`
-            mutation createOrUpdateWorkshop(
-              $name: String!
+            mutation updateUser(
+              $firstName: String!
+              $lastName: String!
               $phone: String!
               $fromTime: Time!
               $toTime: Time!
@@ -222,8 +236,9 @@ export default {
               $addressProvince: String!
               $addressCity: String!
             ) {
-              createOrUpdateWorkshop(
-                name: $name
+              updateUser(
+                firstName: $firstName
+                lastName: $lastName
                 phone: $phone
                 fromTime: $fromTime
                 toTime: $toTime
@@ -237,7 +252,8 @@ export default {
             }
           `,
           variables: {
-            name: this.form.name,
+            firstName: this.form.firstName,
+            lastName: this.form.lastName,
             phone: this.form.phone,
             fromTime: this.$moment(this.form.fromTime).format('hh:mm'),
             toTime: this.$moment(this.form.toTime).format('hh:mm'),
@@ -248,7 +264,7 @@ export default {
           }
         })
         .then(({ data }) => {
-          if (data.createOrUpdateWorkshop.status === 'ok') {
+          if (data.updateUser.status === 'ok') {
             this.$buefy.toast.open('Se guardaron los cambios')
           }
         })

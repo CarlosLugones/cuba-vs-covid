@@ -22,11 +22,6 @@ class AddressAdmin(admin.ModelAdmin):
     pass
 
 
-@admin.register(models.Workshop)
-class WorkshopAdmin(admin.ModelAdmin):
-    pass
-
-
 @admin.register(models.STLModel)
 class STLModelAdmin(admin.ModelAdmin):
     pass

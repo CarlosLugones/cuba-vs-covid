@@ -41,8 +41,8 @@
           </div>
         </b-navbar-item>
         <b-navbar-dropdown v-if="$auth.loggedIn" :label="$auth.user.firstName">
-          <b-navbar-item href="#">
-            Configuración
+          <b-navbar-item @click="$router.replace('/dashboard/profile')">
+            Perfil
           </b-navbar-item>
           <b-navbar-item href="#" @click="logout()">
             Salir

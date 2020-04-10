@@ -9,11 +9,6 @@
             <b-menu>
               <b-menu-list>
                 <b-menu-item
-                  icon="factory"
-                  label="Taller"
-                  @click="navigateTo('/dashboard/workshop')"
-                ></b-menu-item>
-                <b-menu-item
                   icon="printer-3d"
                   label="Productos"
                   @click="navigateTo('/dashboard/products')"

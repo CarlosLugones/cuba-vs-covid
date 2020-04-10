@@ -7,11 +7,7 @@ from apps.api.mutations.auth import LoginMutation, RegisterMutation
 # Users
 from apps.api.queries.users import UserQuery
 from apps.api.types.users import UserType
-
-# Workshops
-from apps.api.types.workshops import WorkshopType
-from apps.api.queries.workshops import WorkshopQuery
-from apps.api.mutations.workshops import CreateOrUpdateWorkshop
+from apps.api.mutations.users import UpdateUser
 
 # Geo
 from apps.api.types.geo import ProvinceType, CityType, AddressType
@@ -26,7 +22,6 @@ from apps.api.mutations.products import CreateProduct, UpdateProduct, RemoveProd
 class Query(
     ObjectType,
     UserQuery,
-    WorkshopQuery,
     GeoQuery,
     ProductsQuery
 ):
@@ -38,8 +33,8 @@ class Mutation(ObjectType):
     login = LoginMutation.Field()
     register = RegisterMutation.Field()
 
-    # workshop
-    create_or_update_workshop = CreateOrUpdateWorkshop.Field()
+    # users
+    update_user = UpdateUser.Field()
 
     # products
     create_product = CreateProduct.Field()
@@ -49,7 +44,6 @@ class Mutation(ObjectType):
 
 types = [
     UserType,
-    WorkshopType,
     ProvinceType,
     CityType,
     AddressType,
