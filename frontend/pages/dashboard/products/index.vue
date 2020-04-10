@@ -8,6 +8,9 @@
     </b-button>
     <b-table :data="products">
       <template slot-scope="props">
+        <b-table-column field="id" label="Foto">
+          <img :src="`/media/${props.row.photo}`" alt="" width="30pt" />
+        </b-table-column>
         <b-table-column field="id" label="Nombre">
           {{ props.row.name }}
         </b-table-column>
@@ -47,6 +50,7 @@ export default {
               id
               name
               stock
+              photo
             }
           }
         `

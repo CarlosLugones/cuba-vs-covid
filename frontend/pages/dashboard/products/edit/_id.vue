@@ -102,8 +102,14 @@ export default {
                 $id: String!
                 $name: String!
                 $stock: Int!
+                $photo: String
               ) {
-                updateProduct(id: $id, name: $name, stock: $stock) {
+                updateProduct(
+                  id: $id
+                  name: $name
+                  stock: $stock
+                  photo: $photo
+                ) {
                   status
                 }
               }

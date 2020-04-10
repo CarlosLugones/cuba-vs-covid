@@ -30,8 +30,9 @@ class UpdateProduct(graphene.Mutation):
         id = graphene.String(required=True)
         name = graphene.String(required=True)
         stock = graphene.Int(required=True)
+        photo = graphene.String()
 
-    def mutate(self, info, id, name, stock):
+    def mutate(self, info, id, name, stock, photo):
         user = authenticate(info.context)
         if user is not None:
             try:
@@ -39,6 +40,7 @@ class UpdateProduct(graphene.Mutation):
                 if product.owner == user:
                     product.name = name
                     product.stock = stock
+                    product.photo = photo
                     product.save()
                     return UpdateProduct(status='ok')
             except Product.DoesNotExist:

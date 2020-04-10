@@ -1,5 +1,8 @@
 <template>
   <div>
+    <h2 class="subtitle">
+      Tu perfil
+    </h2>
     <form @submit.stop.prevent="save()">
       <!-- name -->
       <label for="" class="label">Nombre</label>
