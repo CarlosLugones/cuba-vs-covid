@@ -96,6 +96,9 @@ export default {
             product(id: $id) {
               id
               stock
+              stlmodel {
+                id
+              }
             }
           }
         `,
@@ -104,7 +107,8 @@ export default {
         }
       })
       .then(({ data }) => {
-        this.form = data.product
+        this.form.stlmodel = data.product.stlmodel.id
+        this.form.stock = data.product.stock
       })
   },
   methods: {
