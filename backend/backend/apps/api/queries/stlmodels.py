@@ -5,8 +5,12 @@ from backend.apps.core.models import STLModel
 
 
 class STLModelsQuery:
+    stlmodel = graphene.Field(STLModelType, id=graphene.String(required=True))
     stlmodels = graphene.List(STLModelType)
     existing_stlmodels = graphene.List(STLModelType)
+
+    def resolve_stlmodel(self, info, id):
+        return STLModel.objects.get(pk=id)
 
     def resolve_stlmodels(self, info):
         return STLModel.objects.all()

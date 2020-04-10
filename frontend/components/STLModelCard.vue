@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card" @click="$router.replace(`/stlmodel/${stlmodel.id}`)">
     <header class="card-header">
       <p class="card-header-title">
         {{ stlmodel.name }}
@@ -27,4 +27,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped></style>
+<style lang="stylus" scoped>
+.card:hover
+  cursor pointer
+</style>
