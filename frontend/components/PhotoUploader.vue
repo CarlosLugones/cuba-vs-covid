@@ -30,8 +30,8 @@
       v-show="photo"
       :class="editable ? 'photo is-rounded' : 'photo is-rounded'"
       :style="
-        `background: url('/media/${photo}'); width: ${size ||
-          width}; height: ${size || height};`
+        `background: url('${photo}'); width: ${size || width}; height: ${size ||
+          height};`
       "
       @click="showModal()"
     >

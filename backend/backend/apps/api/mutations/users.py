@@ -19,8 +19,9 @@ class UpdateUser(graphene.Mutation):
         line_2 = graphene.String()
         province = graphene.String(required=True)
         city = graphene.String(required=True)
+        avatar = graphene.String()
 
-    def mutate(self, info, first_name, last_name, phone, from_time, to_time, line_1, line_2, province, city):
+    def mutate(self, info, first_name, last_name, phone, from_time, to_time, line_1, province, city, line_2=None, avatar=None):
         user = authenticate(info.context)
 
         if user is not None:
@@ -36,6 +37,7 @@ class UpdateUser(graphene.Mutation):
                 city=city
             )
 
+            user.avatar = avatar
             user.first_name = first_name
             user.last_name = last_name
             user.phone = phone

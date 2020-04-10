@@ -4,113 +4,131 @@
       Tu perfil
     </h2>
     <form @submit.stop.prevent="save()">
-      <!-- name -->
-      <label for="" class="label">Nombre</label>
-      <b-field>
-        <b-input v-model="$v.form.firstName.$model"></b-input>
-      </b-field>
-      <!-- end name -->
+      <div class="columns">
+        <div class="column is-narrow">
+          <!-- avatar -->
+          <label for="" class="label">Foto de perfil</label>
+          <PhotoUploader
+            size="120pt"
+            class="margin-bottom-10"
+            :photo="form.avatar ? `/media/${form.avatar}` : '/img/avatar.jpg'"
+            @photo:uploaded="($url) => (form.avatar = $url)"
+          />
+          <!-- end avatar -->
+        </div>
 
-      <!-- last name -->
-      <label for="" class="label">Apellidos</label>
-      <b-field>
-        <b-input v-model="$v.form.lastName.$model"></b-input>
-      </b-field>
-      <!-- end last name -->
+        <div class="column">
+          <!-- name -->
+          <label for="" class="label">Nombre</label>
+          <b-field>
+            <b-input v-model="$v.form.firstName.$model"></b-input>
+          </b-field>
+          <!-- end name -->
 
-      <!-- phone -->
-      <label for="" class="label">Teléfono</label>
-      <b-field>
-        <b-input v-model="$v.form.phone.$model"></b-input>
-      </b-field>
-      <!-- end phone -->
+          <!-- last name -->
+          <label for="" class="label">Apellidos</label>
+          <b-field>
+            <b-input v-model="$v.form.lastName.$model"></b-input>
+          </b-field>
+          <!-- end last name -->
 
-      <!-- address line 1 -->
-      <label for="" class="label">Línea 1 de la dirección</label>
-      <b-field>
-        <b-input v-model="$v.form.address.line1.$model"></b-input>
-      </b-field>
-      <!-- end address line 1 -->
+          <!-- phone -->
+          <label for="" class="label">Teléfono</label>
+          <b-field>
+            <b-input v-model="$v.form.phone.$model"></b-input>
+          </b-field>
+          <!-- end phone -->
 
-      <!-- address line 2 -->
-      <label for="" class="label">Línea 2 de la dirección</label>
-      <b-field>
-        <b-input v-model="form.address.line2"></b-input>
-      </b-field>
-      <!-- end address line 2 -->
+          <!-- address line 1 -->
+          <label for="" class="label">Línea 1 de la dirección</label>
+          <b-field>
+            <b-input v-model="$v.form.address.line1.$model"></b-input>
+          </b-field>
+          <!-- end address line 1 -->
 
-      <!-- address province -->
-      <label for="" class="label">Provincia</label>
-      <b-field>
-        <b-select
-          v-model="$v.form.address.province.$model"
-          placeholder="Selecciona una provincia"
-          expanded
-          @input="loadCities()"
-        >
-          <option
-            v-for="province in provinces"
-            :key="province.id"
-            :value="province.id"
-          >
-            {{ province.name }}
-          </option>
-        </b-select>
-      </b-field>
-      <!-- end address province -->
+          <!-- address line 2 -->
+          <label for="" class="label">Línea 2 de la dirección</label>
+          <b-field>
+            <b-input v-model="form.address.line2"></b-input>
+          </b-field>
+          <!-- end address line 2 -->
 
-      <!-- address city -->
-      <label for="" class="label">Municipio</label>
-      <b-field>
-        <b-select
-          v-model="$v.form.address.city.$model"
-          placeholder="Selecciona un municipio"
-          expanded
-          :disabled="!$v.form.address.province.$model"
-        >
-          <option v-for="city in cities" :key="city.id" :value="city.id">
-            {{ city.name }}
-          </option>
-        </b-select>
-      </b-field>
-      <!-- end address city -->
+          <!-- address province -->
+          <label for="" class="label">Provincia</label>
+          <b-field>
+            <b-select
+              v-model="$v.form.address.province.$model"
+              placeholder="Selecciona una provincia"
+              expanded
+              @input="loadCities()"
+            >
+              <option
+                v-for="province in provinces"
+                :key="province.id"
+                :value="province.id"
+              >
+                {{ province.name }}
+              </option>
+            </b-select>
+          </b-field>
+          <!-- end address province -->
 
-      <!-- from time -->
-      <label for="" class="label">Hora de apertura</label>
-      <b-field>
-        <b-timepicker
-          v-model="$v.form.fromTime.$model"
-          rounded
-          placeholder="Clic para seleccionar"
-          icon="clock"
-        >
-        </b-timepicker>
-      </b-field>
-      <!-- end from time -->
+          <!-- address city -->
+          <label for="" class="label">Municipio</label>
+          <b-field>
+            <b-select
+              v-model="$v.form.address.city.$model"
+              placeholder="Selecciona un municipio"
+              expanded
+              :disabled="!$v.form.address.province.$model"
+            >
+              <option v-for="city in cities" :key="city.id" :value="city.id">
+                {{ city.name }}
+              </option>
+            </b-select>
+          </b-field>
+          <!-- end address city -->
 
-      <!-- to time -->
-      <label for="" class="label">Hora de cierre</label>
-      <b-field>
-        <b-timepicker
-          v-model="$v.form.toTime.$model"
-          rounded
-          placeholder="Clic para seleccionar"
-          icon="clock"
-        >
-        </b-timepicker>
-      </b-field>
-      <!-- end to time -->
+          <!-- from time -->
+          <label for="" class="label">Hora de apertura</label>
+          <b-field>
+            <b-timepicker
+              v-model="$v.form.fromTime.$model"
+              rounded
+              editable
+              placeholder="Clic para seleccionar"
+              icon="clock"
+            >
+            </b-timepicker>
+          </b-field>
+          <!-- end from time -->
 
-      <b-field>
-        <b-button
-          type="is-primary"
-          native-type="submit"
-          :loading="form.loading"
-          :disabled="$v.form.$invalid"
-        >
-          Guardar
-        </b-button>
-      </b-field>
+          <!-- to time -->
+          <label for="" class="label">Hora de cierre</label>
+          <b-field>
+            <b-timepicker
+              v-model="$v.form.toTime.$model"
+              rounded
+              editable
+              placeholder="Clic para seleccionar"
+              icon="clock"
+            >
+            </b-timepicker>
+          </b-field>
+          <!-- end to time -->
+
+          <b-field>
+            <b-button
+              type="is-primary"
+              native-type="submit"
+              :loading="form.loading"
+              :disabled="$v.form.$invalid"
+            >
+              Guardar
+            </b-button>
+          </b-field>
+        </div>
+      </div>
     </form>
   </div>
 </template>
@@ -118,13 +136,17 @@
 <script>
 import gql from 'graphql-tag'
 import { required } from 'vuelidate/lib/validators'
+import PhotoUploader from '~/components/PhotoUploader'
+
 export default {
   layout: 'dashboard',
+  components: { PhotoUploader },
   data() {
     return {
       provinces: [],
       cities: [],
       form: {
+        avatar: null,
         firstName: null,
         lastName: null,
         phone: null,
@@ -189,6 +211,7 @@ export default {
         query: gql`
           query viewerUser {
             viewerUser {
+              avatar
               firstName
               lastName
               phone
@@ -238,6 +261,7 @@ export default {
               $addressLine2: String
               $addressProvince: String!
               $addressCity: String!
+              $avatar: String
             ) {
               updateUser(
                 firstName: $firstName
@@ -249,6 +273,7 @@ export default {
                 line2: $addressLine2
                 province: $addressProvince
                 city: $addressCity
+                avatar: $avatar
               ) {
                 status
               }
@@ -263,7 +288,8 @@ export default {
             addressLine1: this.form.address.line1,
             addressLine2: this.form.address.line2,
             addressProvince: this.form.address.province,
-            addressCity: this.form.address.city
+            addressCity: this.form.address.city,
+            avatar: this.form.avatar
           }
         })
         .then(({ data }) => {

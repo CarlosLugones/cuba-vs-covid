@@ -6,10 +6,10 @@
         {{ product.owner.lastName }}
       </p>
     </header>
-    <figure class="image is-4by3">
+    <figure class="image">
       <img
         v-if="product.owner.avatar"
-        :src="`/media/avatar/${product.owner.avatar}`"
+        :src="`/media/${product.owner.avatar}`"
         alt=""
       />
       <img v-else src="/img/avatar.jpg" alt="" />
