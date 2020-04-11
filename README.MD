@@ -82,3 +82,38 @@ djm | Migrar base de datos
 ## Contribuir
 
 ¿Deseas contribuir? Contáctame en [Telegram](https://t.me/lugodev).
+
+## Guía de despliegue
+
+1. Clona el repositorio.
+
+2. Colócalo en `/root/apps/cubavscovid/codebase` en tu VPS.
+
+3. Crea un archivo `.env` en dicha locación y añade las siguientes líneas:
+
+    ```.env
+    CUBAVSCOVID__DJANGO_SECRET_KEY=unallavesecretaaleatoria
+    CUBAVSCOVID__DJANGO_HOSTNAME=covid.copincha.org
+    CUBAVSCOVID__DJANGO_PRODUCTION_STATIC_ROOT=/storage/frontend/static
+    CUBAVSCOVID__DJANGO_PRODUCTION_MEDIA_ROOT=/storage/frontend/static/media
+    ```
+
+4. Crea un archivo `.env` dentro de `frontend` y añade las siguientes líneas:
+
+    ```..env
+    BASE_URL=http://covid.copincha.org
+    BACKEND_BASE_URL=http://covid.copincha.org/api/
+    API_BASE_URL=http://covid.copincha.org/api/
+    ```
+
+5. Levanta los servicios usando `docker-compose`:
+
+    ```..env
+    sudo docker-compose up --build
+    ```
+
+6. Habilita los puertos 80 y 443 en el firewall para permitir el tráfico hacia la aplicación.
+
+**Voilà!**
+
+🦠😷🦠
