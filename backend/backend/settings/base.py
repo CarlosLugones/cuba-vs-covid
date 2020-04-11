@@ -8,11 +8,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ['CUBAVSCOVID__DJANGO_SECRET_KEY']
 
+HOSTNAME = os.environ['CUBAVSCOVID__DJANGO_HOSTNAME']
 
-ALLOWED_HOSTS = []
+# ToDo: this should NOT be '*'
+ALLOWED_HOSTS = ['*']
 
 
 AUTH_USER_MODEL = 'core.User'

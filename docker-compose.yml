@@ -1,0 +1,51 @@
+version: "3"
+
+services:
+  backend:
+    build:
+      context: "./backend"
+    image: backend
+    container_name: "backend"
+    ports:
+      - "8000:8000"
+    networks:
+      - default
+    environment:
+      - CUBAVSCOVID__DJANGO_SECRET_KEY=${CUBAVSCOVID__DJANGO_SECRET_KEY}
+      - CUBAVSCOVID__DJANGO_HOSTNAME=${CUBAVSCOVID__DJANGO_HOSTNAME}
+      - CUBAVSCOVID__DJANGO_PRODUCTION_STATIC_ROOT=${CUBAVSCOVID__DJANGO_PRODUCTION_STATIC_ROOT}
+      - CUBAVSCOVID__DJANGO_PRODUCTION_MEDIA_ROOT=${CUBAVSCOVID__DJANGO_PRODUCTION_MEDIA_ROOT}
+    volumes:
+      - "/root/apps/cubavscovid/codebase/backend:/backend"
+      - "/root/apps/cubavscovid/storage:/storage"
+
+  frontend:
+    build:
+      context: "./frontend"
+    image: frontend
+    container_name: "frontend"
+    depends_on:
+      - backend
+    networks:
+      - default
+    ports:
+      - "3000:3000"
+    volumes:
+      - "/root/apps/cubavscovid/codebase/frontend:/frontend"
+      - "/root/apps/cubavscovid/storage:/storage"
+
+  nginx:
+    image: nginx
+    container_name: "nginx"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "./nginx:/etc/nginx/conf.d"
+      - "/root/apps/cubavscovid/storage:/storage"
+    depends_on:
+      - frontend
+
+networks:
+  default:
+    driver: bridge
