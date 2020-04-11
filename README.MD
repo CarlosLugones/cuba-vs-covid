@@ -112,7 +112,15 @@ djm | Migrar base de datos
     sudo docker-compose up --build
     ```
 
-6. Habilita los puertos 80 y 443 en el firewall para permitir el tráfico hacia la aplicación.
+6. Entra por bash al container del backend y añade un superusuario:
+
+    ```bash
+    sudo docker exec -it backend bash
+    poetry run ./prod.py createsuperuser
+    exit
+    ```
+
+7. Habilita los puertos 80 y 443 en el firewall para permitir el tráfico hacia la aplicación.
 
 **Voilà!**
 
